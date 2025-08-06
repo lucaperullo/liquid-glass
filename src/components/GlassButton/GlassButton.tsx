@@ -17,8 +17,8 @@ const GlassButton: React.FC<GlassButtonProps> = ({
   
   const baseClass = combineClassNames(
     sizeClass,
-    "font-semibold text-white cursor-pointer transition-all duration-200 hover:scale-105 active:scale-95",
-    disabled && 'opacity-50 cursor-not-allowed',
+    "inline-flex items-center justify-center rounded-lg font-medium text-white cursor-pointer transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-white/20 shadow-lg",
+    disabled && 'opacity-50 cursor-not-allowed hover:scale-100',
     className
   );
 

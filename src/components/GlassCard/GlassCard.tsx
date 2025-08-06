@@ -13,7 +13,7 @@ const GlassCard: React.FC<GlassCardProps> = ({
   const hoverClass = hover ? "hover:scale-[1.02] transition-transform duration-300" : "";
   
   const cardClass = combineClassNames(
-    "p-6",
+    "p-6 rounded-lg text-white",
     hoverClass,
     className
   );

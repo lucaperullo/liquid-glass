@@ -13,23 +13,23 @@ const GlassProgressBar: React.FC<GlassProgressBarProps> = ({
 }) => {
   const percentage = Math.min(100, Math.max(0, (value / max) * 100));
   
-  const containerClass = combineClassNames("w-full", className);
+  const containerClass = combineClassNames("w-full text-white", className);
   
   return (
     <div className={containerClass}>
       {showLabel && (
-        <div className="flex justify-between text-white text-sm mb-2">
+        <div className="flex justify-between text-white/80 text-sm mb-2 font-medium">
           <span>Progress</span>
           <span>{percentage.toFixed(0)}%</span>
         </div>
       )}
       <LiquidGlass 
         variant={variant} 
-        className="h-3" 
+        className="h-2 rounded-full overflow-hidden" 
         {...props}
       >
         <div 
-          className="h-full bg-white/30 rounded transition-all duration-300"
+          className="h-full bg-gradient-to-r from-blue-400 to-purple-500 rounded-full transition-all duration-300 ease-out"
           style={{ width: `${percentage}%` }}
         />
       </LiquidGlass>

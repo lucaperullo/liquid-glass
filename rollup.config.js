@@ -2,6 +2,9 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import postcss from 'rollup-plugin-postcss';
+import tailwindcss from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
 
 export default {
   input: 'src/index.ts',
@@ -27,6 +30,11 @@ export default {
       tsconfig: './tsconfig.json',
       declaration: true,
       outDir: 'dist',
+    }),
+    postcss({
+      plugins: [tailwindcss, autoprefixer],
+      extract: 'alg-ui.css',
+      minimize: true,
     }),
   ],
   external: ['react', 'react-dom'],

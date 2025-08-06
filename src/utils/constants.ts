@@ -10,7 +10,15 @@ export const GLASS_PRESETS: Record<GlassVariant, any> = {
     blur: 1,
     dispersion: 5,
     frost: 0.1,
-    borderColor: 'rgba(255, 255, 255, 0.2)'
+    borderColor: 'rgba(255, 255, 255, 0.2)',
+    refractionMode: 'standard',
+    displacementScale: 57,
+    blurAmount: 0.0,
+    saturation: 100,
+    chromaticAberration: 5,
+    elasticity: 0.10,
+    cornerRadius: 52,
+    overLight: false
   },
   subtle: {
     scale: 10,
@@ -21,7 +29,15 @@ export const GLASS_PRESETS: Record<GlassVariant, any> = {
     blur: 0.5,
     dispersion: 2,
     frost: 0.05,
-    borderColor: 'rgba(255, 255, 255, 0.1)'
+    borderColor: 'rgba(255, 255, 255, 0.1)',
+    refractionMode: 'standard',
+    displacementScale: 30,
+    blurAmount: 0.0,
+    saturation: 80,
+    chromaticAberration: 2,
+    elasticity: 0.05,
+    cornerRadius: 25,
+    overLight: false
   },
   intense: {
     scale: 30,
@@ -32,7 +48,15 @@ export const GLASS_PRESETS: Record<GlassVariant, any> = {
     blur: 2,
     dispersion: 8,
     frost: 0.15,
-    borderColor: 'rgba(255, 255, 255, 0.3)'
+    borderColor: 'rgba(255, 255, 255, 0.3)',
+    refractionMode: 'prominent',
+    displacementScale: 80,
+    blurAmount: 2.0,
+    saturation: 120,
+    chromaticAberration: 8,
+    elasticity: 0.15,
+    cornerRadius: 75,
+    overLight: false
   },
   minimal: {
     scale: 5,
@@ -43,7 +67,15 @@ export const GLASS_PRESETS: Record<GlassVariant, any> = {
     blur: 0.2,
     dispersion: 1,
     frost: 0.02,
-    borderColor: 'rgba(255, 255, 255, 0.05)'
+    borderColor: 'rgba(255, 255, 255, 0.05)',
+    refractionMode: 'standard',
+    displacementScale: 15,
+    blurAmount: 0.0,
+    saturation: 60,
+    chromaticAberration: 1,
+    elasticity: 0.02,
+    cornerRadius: 12,
+    overLight: false
   }
 };
 

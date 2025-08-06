@@ -18,6 +18,14 @@ export const getGlassConfig = (
     ...(overrides.dispersion !== undefined && { dispersion: overrides.dispersion }),
     ...(overrides.frost !== undefined && { frost: overrides.frost }),
     ...(overrides.borderColor !== undefined && { borderColor: overrides.borderColor }),
+    ...(overrides.refractionMode !== undefined && { refractionMode: overrides.refractionMode }),
+    ...(overrides.displacementScale !== undefined && { displacementScale: overrides.displacementScale }),
+    ...(overrides.blurAmount !== undefined && { blurAmount: overrides.blurAmount }),
+    ...(overrides.saturation !== undefined && { saturation: overrides.saturation }),
+    ...(overrides.chromaticAberration !== undefined && { chromaticAberration: overrides.chromaticAberration }),
+    ...(overrides.elasticity !== undefined && { elasticity: overrides.elasticity }),
+    ...(overrides.cornerRadius !== undefined && { cornerRadius: overrides.cornerRadius }),
+    ...(overrides.overLight !== undefined && { overLight: overrides.overLight }),
     radius: overrides.radius || 12,
     blend: "difference" as const,
     x: "R" as const,
@@ -33,7 +41,10 @@ export const generateDisplacementSVG = (
   const newwidth = width / 2;
   const newheight = height / 2;
   const border = Math.min(newwidth, newheight) * (config.border * 0.5);
-  const effectiveRadius = Math.min(config.radius, width / 2, height / 2);
+  const effectiveRadius = Math.min(config.cornerRadius || config.radius, width / 2, height / 2);
+  
+  // Apply overLight effect if enabled
+  const lightness = config.overLight ? Math.max(20, config.lightness - 40) : config.lightness;
   
   const svgContent = `
     <svg viewBox="0 0 ${newwidth} ${newheight}" xmlns="http://www.w3.org/2000/svg">
@@ -50,7 +61,7 @@ export const generateDisplacementSVG = (
       <rect x="0" y="0" width="${newwidth}" height="${newheight}" fill="black"/>
       <rect x="0" y="0" width="${newwidth}" height="${newheight}" rx="${effectiveRadius}" fill="url(#red-${effectiveRadius})" />
       <rect x="0" y="0" width="${newwidth}" height="${newheight}" rx="${effectiveRadius}" fill="url(#blue-${effectiveRadius})" style="mix-blend-mode: ${config.blend}" />
-      <rect x="${border}" y="${border}" width="${newwidth - border * 2}" height="${newheight - border * 2}" rx="${effectiveRadius}" fill="hsl(0 0% ${config.lightness}% / ${config.alpha})" style="filter:blur(${config.blur}px)" />
+      <rect x="${border}" y="${border}" width="${newwidth - border * 2}" height="${newheight - border * 2}" rx="${effectiveRadius}" fill="hsl(0 0% ${lightness}% / ${config.alpha})" style="filter:blur(${config.blur}px)" />
     </svg>
   `;
   

@@ -14,7 +14,7 @@ const GlassBadge: React.FC<GlassBadgeProps> = ({
   const colorClass = BADGE_COLOR_CLASSES[color];
   
   const badgeClass = combineClassNames(
-    "inline-block px-3 py-1 text-sm font-medium",
+    "inline-flex items-center px-3 py-1 text-sm font-medium rounded-full shadow-sm",
     colorClass,
     className
   );

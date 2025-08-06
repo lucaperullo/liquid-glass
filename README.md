@@ -1,6 +1,6 @@
 # Advanced Liquid Glass UI (ALG UI) 🌟
 
-[![npm version](https://badge.fury.io/js/advanced-liquid-glass.svg)](https://badge.fury.io/js/advanced-liquid-glass)
+[![npm version](https://badge.fury.io/js/advanced-liquid-glass-ui.svg)](https://badge.fury.io/js/advanced-liquid-glass-ui)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
 
@@ -15,6 +15,7 @@
 - 💎 **Glass Morphism** - Realistic frosted glass effects
 - 📱 **Responsive Design** - Works on all screen sizes
 - 🎯 **TypeScript Support** - Full type safety included
+- 🎨 **Tailwind CSS Included** - No separate installation needed
 - 🚀 **Zero Dependencies** - Lightweight and fast
 - 📖 **Comprehensive Docs** - Easy to learn and use
 
@@ -23,17 +24,30 @@
 ### Installation
 
 ```bash
-npm install advanced-liquid-glass
+npm install advanced-liquid-glass-ui
 # or
-yarn add advanced-liquid-glass
+yarn add advanced-liquid-glass-ui
 # or
-pnpm add advanced-liquid-glass
+pnpm add advanced-liquid-glass-ui
+```
+
+### Import CSS (Required)
+
+```css
+/* In your main CSS file */
+@import 'advanced-liquid-glass-ui/alg-ui.css';
+```
+
+Or in JavaScript/TypeScript:
+
+```javascript
+import 'advanced-liquid-glass-ui/alg-ui.css';
 ```
 
 ### Basic Usage
 
 ```jsx
-import { LiquidGlass, GlassButton, GlassCard } from 'advanced-liquid-glass';
+import { LiquidGlass, GlassButton, GlassCard } from 'advanced-liquid-glass-ui';
 
 function App() {
   return (
@@ -102,7 +116,7 @@ Every component accepts custom props for fine-tuning:
 
 ### Navigation Bar
 ```jsx
-import { GlassNavbar, GlassButton } from 'advanced-liquid-glass';
+import { GlassNavbar, GlassButton } from 'advanced-liquid-glass-ui';
 
 <GlassNavbar 
   logo="My App"
@@ -117,7 +131,7 @@ import { GlassNavbar, GlassButton } from 'advanced-liquid-glass';
 
 ### Modal Dialog
 ```jsx
-import { GlassModal, GlassButton } from 'advanced-liquid-glass';
+import { GlassModal, GlassButton } from 'advanced-liquid-glass-ui';
 
 const [isOpen, setIsOpen] = useState(false);
 
@@ -148,7 +162,7 @@ const [isOpen, setIsOpen] = useState(false);
 
 ### Form with Progress
 ```jsx
-import { GlassCard, GlassInput, GlassProgressBar, GlassButton } from 'advanced-liquid-glass';
+import { GlassCard, GlassInput, GlassProgressBar, GlassButton } from 'advanced-liquid-glass-ui';
 
 <GlassCard className="p-8">
   <h2 className="text-2xl font-bold text-white mb-6">Sign Up</h2>
@@ -182,7 +196,7 @@ import { GlassCard, GlassInput, GlassProgressBar, GlassButton } from 'advanced-l
 
 ### Statistics Dashboard
 ```jsx
-import { GlassStats, GlassBadge } from 'advanced-liquid-glass';
+import { GlassStats, GlassBadge } from 'advanced-liquid-glass-ui';
 
 const stats = [
   { value: "42K", label: "Active Users" },
@@ -252,7 +266,7 @@ Create visual hierarchy with different variants:
 
 - React 16.8+
 - Modern browser with backdrop-filter support
-- Tailwind CSS (recommended for styling)
+- Tailwind CSS is included in the package
 
 ## 🛠️ Development
 

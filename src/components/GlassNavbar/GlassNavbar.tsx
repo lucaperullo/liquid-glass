@@ -11,7 +11,7 @@ const GlassNavbar: React.FC<GlassNavbarProps> = ({
   className = "",
   ...props 
 }) => {
-  const navbarClass = combineClassNames("p-4 w-full", className);
+  const navbarClass = combineClassNames("p-4 w-full text-white", className);
 
   return (
     <LiquidGlass 
@@ -27,14 +27,14 @@ const GlassNavbar: React.FC<GlassNavbarProps> = ({
             <a 
               key={index}
               href={link.href} 
-              className="text-white/80 hover:text-white transition-colors"
+              className="text-white/80 hover:text-white transition-colors duration-200 font-medium"
             >
               {link.label}
             </a>
           ))}
         </div>
         
-        {actions && <div className="flex space-x-2">{actions}</div>}
+        {actions && <div className="flex items-center space-x-3">{actions}</div>}
       </nav>
     </LiquidGlass>
   );

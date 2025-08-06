@@ -25,6 +25,17 @@ export interface BaseGlassProps {
   frost?: number;
   borderColor?: string;
   backdropBlur?: number;
+  
+  // New refraction properties
+  refractionMode?: 'standard' | 'polar' | 'prominent' | 'shader';
+  displacementScale?: number;
+  blurAmount?: number;
+  saturation?: number;
+  chromaticAberration?: number;
+  elasticity?: number;
+  cornerRadius?: number;
+  overLight?: boolean;
+  
   className?: string;
   style?: CSSProperties;
   children?: ReactNode;

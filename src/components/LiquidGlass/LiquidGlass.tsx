@@ -17,6 +17,14 @@ const LiquidGlass: React.FC<LiquidGlassProps> = ({
   frost,
   borderColor,
   backdropBlur = 3,
+  refractionMode,
+  displacementScale,
+  blurAmount,
+  saturation,
+  chromaticAberration,
+  elasticity,
+  cornerRadius,
+  overLight,
   className = "",
   style = {},
   ...props
@@ -31,7 +39,15 @@ const LiquidGlass: React.FC<LiquidGlassProps> = ({
     blur,
     dispersion,
     frost,
-    borderColor
+    borderColor,
+    refractionMode,
+    displacementScale,
+    blurAmount,
+    saturation,
+    chromaticAberration,
+    elasticity,
+    cornerRadius,
+    overLight
   });
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -61,23 +77,27 @@ const LiquidGlass: React.FC<LiquidGlassProps> = ({
   const uniqueFilterId = useId();
   const filterId = `liquid-glass-filter-${uniqueFilterId}`;
 
+  // Calculate effective blur based on blurAmount and blur properties
+  const effectiveBlur = config.blurAmount !== undefined ? config.blurAmount : config.blur;
+  const effectiveBackdropBlur = backdropBlur + (effectiveBlur || 0);
+
   const glassMorphismStyle: React.CSSProperties = {
     width: "100%",
     height: "100%",
-    borderRadius: config.radius,
+    borderRadius: config.cornerRadius || config.radius,
     position: "absolute",
     top: 0,
     left: 0,
     zIndex: 1,
-    background: `hsl(0 0% 100% / ${config.frost})`,
-    backdropFilter: `blur(${backdropBlur}px) saturate(1.2) url(#${filterId})`,
+    background: `hsl(0 0% ${config.lightness}% / ${config.frost})`,
+    backdropFilter: `blur(${effectiveBackdropBlur}px) saturate(${config.saturation / 100}) url(#${filterId})`,
     pointerEvents: "none"
   };
 
   const gradientBorderStyle: React.CSSProperties = {
     position: "absolute",
     inset: 0,
-    borderRadius: config.radius,
+    borderRadius: config.cornerRadius || config.radius,
     zIndex: 2,
     pointerEvents: "none",
     background: `linear-gradient(315deg, ${config.borderColor} 0%, rgba(120, 120, 120, 0) 30%, rgba(120, 120, 120, 0) 70%, ${config.borderColor} 100%) border-box`,
@@ -88,7 +108,7 @@ const LiquidGlass: React.FC<LiquidGlassProps> = ({
 
   const containerStyle: React.CSSProperties = {
     position: "relative",
-    borderRadius: config.radius,
+    borderRadius: config.cornerRadius || config.radius,
     overflow: "hidden",
     ...style
   };
@@ -126,7 +146,7 @@ const LiquidGlass: React.FC<LiquidGlassProps> = ({
               <feDisplacementMap 
                 in="SourceGraphic"
                 in2="map"
-                scale={config.scale + config.dispersion}
+                scale={config.scale + config.dispersion + (config.displacementScale || 0)}
                 xChannelSelector={config.x}
                 yChannelSelector={config.y}
                 result="dispRed"
@@ -140,7 +160,7 @@ const LiquidGlass: React.FC<LiquidGlassProps> = ({
               <feDisplacementMap 
                 in="SourceGraphic"
                 in2="map"
-                scale={config.scale + config.dispersion}
+                scale={config.scale + config.dispersion + (config.displacementScale || 0)}
                 xChannelSelector={config.x}
                 yChannelSelector={config.y}
                 result="dispGreen"
@@ -154,7 +174,7 @@ const LiquidGlass: React.FC<LiquidGlassProps> = ({
               <feDisplacementMap 
                 in="SourceGraphic"
                 in2="map"
-                scale={config.scale + config.dispersion}
+                scale={config.scale + config.dispersion + (config.displacementScale || 0)}
                 xChannelSelector={config.x}
                 yChannelSelector={config.y}
                 result="dispBlue"

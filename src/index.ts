@@ -13,3 +13,6 @@ export { default as GlassSidebar } from './components/GlassSidebar';
 export * from './components';
 export * from './types';
 export * from './utils';
+
+// Export CSS for easy importing
+export { default as styles } from './styles/index.css';

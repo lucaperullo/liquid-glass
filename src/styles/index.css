@@ -1,0 +1,300 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles for ALG UI */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+/* Custom component styles for ALG UI */
+@layer components {
+  /* Glass morphism base styles */
+  .alg-glass {
+    @apply relative overflow-hidden;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  }
+  
+  .alg-glass-strong {
+    @apply relative overflow-hidden;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.5);
+  }
+  
+  .alg-glass-soft {
+    @apply relative overflow-hidden;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.2);
+  }
+  
+  /* Chromatic aberration effects */
+  .alg-chromatic {
+    position: relative;
+  }
+  
+  .alg-chromatic::before,
+  .alg-chromatic::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  .alg-chromatic::before {
+    filter: blur(1px);
+    transform: translate(-2px, -2px);
+    background: inherit;
+    opacity: 0.3;
+  }
+  
+  .alg-chromatic::after {
+    filter: blur(1px);
+    transform: translate(2px, 2px);
+    background: inherit;
+    opacity: 0.3;
+  }
+  
+  /* Liquid distortion effects */
+  .alg-liquid {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .alg-liquid::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: liquid-flow 3s ease-in-out infinite;
+    pointer-events: none;
+  }
+  
+  /* Button variants */
+  .alg-button {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium transition-all duration-200;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .alg-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+  }
+  
+  .alg-button:hover::before {
+    left: 100%;
+  }
+  
+  /* Input styles */
+  .alg-input {
+    @apply w-full px-3 py-2 rounded-lg border transition-all duration-200;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+  
+  .alg-input:focus {
+    @apply outline-none;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+  }
+  
+  .alg-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  /* Progress bar styles */
+  .alg-progress {
+    @apply w-full h-2 rounded-full overflow-hidden;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .alg-progress-bar {
+    @apply h-full rounded-full transition-all duration-300;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+  }
+  
+  /* Badge styles */
+  .alg-badge {
+    @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .alg-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: currentColor;
+    opacity: 0.1;
+    border-radius: inherit;
+  }
+  
+  /* Modal and overlay styles */
+  .alg-modal-overlay {
+    @apply fixed inset-0 z-50 flex items-center justify-center p-4;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+  }
+  
+  .alg-modal-content {
+    @apply relative max-w-md w-full p-6 rounded-lg;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  }
+  
+  /* Sidebar styles */
+  .alg-sidebar {
+    @apply fixed top-0 h-full z-40;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  }
+  
+  /* Tooltip styles */
+  .alg-tooltip {
+    @apply absolute z-50 px-2 py-1 rounded text-sm;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+    color: white;
+    white-space: nowrap;
+  }
+  
+  /* Stats grid styles */
+  .alg-stats-grid {
+    @apply grid grid-cols-2 gap-4;
+  }
+  
+  .alg-stat-item {
+    @apply p-4 rounded-lg text-center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Custom utility classes */
+@layer utilities {
+  /* Text utilities for glass components */
+  .text-glass {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .text-glass-soft {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .text-glass-muted {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Background utilities */
+  .bg-glass {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .bg-glass-strong {
+    background: rgba(255, 255, 255, 0.15);
+  }
+  
+  .bg-glass-soft {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  /* Border utilities */
+  .border-glass {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .border-glass-strong {
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .border-glass-soft {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Animation utilities */
+  .animate-glass-shimmer {
+    animation: glass-shimmer 2s ease-in-out infinite alternate;
+  }
+  
+  .animate-liquid-flow {
+    animation: liquid-flow 3s ease-in-out infinite;
+  }
+  
+  .animate-chromatic-shift {
+    animation: chromatic-shift 4s ease-in-out infinite;
+  }
+}
+
+/* Keyframe animations */
+@keyframes liquid-flow {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.02);
+    filter: hue-rotate(180deg);
+  }
+}
+
+@keyframes glass-shimmer {
+  0% {
+    background-position: -200% 0;
+    opacity: 0.8;
+  }
+  100% {
+    background-position: 200% 0;
+    opacity: 1;
+  }
+}
+
+@keyframes chromatic-shift {
+  0% {
+    filter: hue-rotate(0deg) saturate(1);
+  }
+  33% {
+    filter: hue-rotate(120deg) saturate(1.2);
+  }
+  66% {
+    filter: hue-rotate(240deg) saturate(1.4);
+  }
+  100% {
+    filter: hue-rotate(360deg) saturate(1);
+  }
+} 
