@@ -1,7 +1,8 @@
-import React, { useMemo, useEffect, useRef, useState, useId } from 'react';
+import React, { useMemo, useEffect, useRef, useState, useId, useCallback } from 'react';
 import { LiquidGlassProps } from './LiquidGlass.types';
 import { getGlassConfig, generateDisplacementSVG, combineClassNames } from '../../utils';
 import { DEFAULT_DIMENSIONS } from '../../utils/constants';
+import SVGPreloader from './SVGPreloader';
 
 const LiquidGlass: React.FC<LiquidGlassProps> = ({
   children,
@@ -52,6 +53,9 @@ const LiquidGlass: React.FC<LiquidGlassProps> = ({
 
   const containerRef = useRef<HTMLDivElement>(null);
   const [dimensions, setDimensions] = useState(DEFAULT_DIMENSIONS);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [svgLoaded, setSvgLoaded] = useState(false);
+  const [preloaderLoaded, setPreloaderLoaded] = useState(false);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -74,12 +78,48 @@ const LiquidGlass: React.FC<LiquidGlassProps> = ({
     return generateDisplacementSVG(dimensions.width, dimensions.height, config);
   }, [dimensions, config]);
 
+  // Set loaded state when dimensions are valid
+  useEffect(() => {
+    if (dimensions.width > 0 && dimensions.height > 0) {
+      setIsLoaded(true);
+    }
+  }, [dimensions]);
+
+  // Handle SVG load
+  const handleSvgLoad = useCallback(() => {
+    setSvgLoaded(true);
+  }, []);
+
+  // Handle preloader load
+  const handlePreloaderLoad = useCallback(() => {
+    setPreloaderLoaded(true);
+  }, []);
+
   const uniqueFilterId = useId();
   const filterId = `liquid-glass-filter-${uniqueFilterId}`;
 
   // Calculate effective blur based on blurAmount and blur properties
   const effectiveBlur = config.blurAmount !== undefined ? config.blurAmount : config.blur;
   const effectiveBackdropBlur = backdropBlur + (effectiveBlur || 0);
+
+  // Determine if effects should be visible
+  const effectsReady = isLoaded && (svgLoaded || preloaderLoaded);
+
+  // Fallback style for when effects are not loaded yet
+  const fallbackStyle: React.CSSProperties = {
+    width: "100%",
+    height: "100%",
+    borderRadius: config.cornerRadius || config.radius,
+    position: "absolute",
+    top: 0,
+    left: 0,
+    zIndex: 1,
+    background: `hsl(0 0% ${config.lightness}% / ${config.frost})`,
+    backdropFilter: `blur(${effectiveBackdropBlur}px) saturate(${config.saturation / 100})`,
+    pointerEvents: "none",
+    opacity: effectsReady ? 1 : 0,
+    transition: "opacity 0.3s ease-in-out"
+  };
 
   const glassMorphismStyle: React.CSSProperties = {
     width: "100%",
@@ -91,7 +131,9 @@ const LiquidGlass: React.FC<LiquidGlassProps> = ({
     zIndex: 1,
     background: `hsl(0 0% ${config.lightness}% / ${config.frost})`,
     backdropFilter: `blur(${effectiveBackdropBlur}px) saturate(${config.saturation / 100}) url(#${filterId})`,
-    pointerEvents: "none"
+    pointerEvents: "none",
+    opacity: effectsReady ? 1 : 0,
+    transition: "opacity 0.3s ease-in-out"
   };
 
   const gradientBorderStyle: React.CSSProperties = {
@@ -103,113 +145,132 @@ const LiquidGlass: React.FC<LiquidGlassProps> = ({
     background: `linear-gradient(315deg, ${config.borderColor} 0%, rgba(120, 120, 120, 0) 30%, rgba(120, 120, 120, 0) 70%, ${config.borderColor} 100%) border-box`,
     mask: "linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0)",
     maskComposite: "exclude",
-    border: `1px solid transparent`
+    border: `1px solid transparent`,
+    opacity: isLoaded ? 1 : 0,
+    transition: "opacity 0.3s ease-in-out"
   };
 
   const containerStyle: React.CSSProperties = {
     position: "relative",
     borderRadius: config.cornerRadius || config.radius,
     overflow: "hidden",
+    minHeight: "1px", // Ensure container has height even when empty
     ...style
   };
 
   return (
-    <div 
-      ref={containerRef}
-      className={className}
-      style={containerStyle}
-      {...props}
-    >
-      <div style={glassMorphismStyle}>
-        <svg 
-          style={{
-            width: "100%",
-            height: "100%",
-            position: "absolute",
-            inset: 0
-          }}
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <filter 
-              id={filterId}
-              colorInterpolationFilters="sRGB"
-            >
-              <feImage 
-                href={displacementDataUri}
-                x="0"
-                y="0"
-                width="100%"
-                height="100%"
-                result="map"
-              />
-              <feDisplacementMap 
-                in="SourceGraphic"
-                in2="map"
-                scale={config.scale + config.dispersion + (config.displacementScale || 0)}
-                xChannelSelector={config.x}
-                yChannelSelector={config.y}
-                result="dispRed"
-              />
-              <feColorMatrix 
-                in="dispRed"
-                type="matrix"
-                values="1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"
-                result="red"
-              />
-              <feDisplacementMap 
-                in="SourceGraphic"
-                in2="map"
-                scale={config.scale + config.dispersion + (config.displacementScale || 0)}
-                xChannelSelector={config.x}
-                yChannelSelector={config.y}
-                result="dispGreen"
-              />
-              <feColorMatrix 
-                in="dispGreen"
-                type="matrix"
-                values="0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0"
-                result="green"
-              />
-              <feDisplacementMap 
-                in="SourceGraphic"
-                in2="map"
-                scale={config.scale + config.dispersion + (config.displacementScale || 0)}
-                xChannelSelector={config.x}
-                yChannelSelector={config.y}
-                result="dispBlue"
-              />
-              <feColorMatrix 
-                in="dispBlue"
-                type="matrix"
-                values="0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0"
-                result="blue"
-              />
-              <feBlend 
-                in="red"
-                in2="green"
-                mode="screen"
-                result="rg"
-              />
-              <feBlend 
-                in="rg"
-                in2="blue"
-                mode="screen"
-                result="output"
-              />
-              <feGaussianBlur 
-                in="output"
-                stdDeviation={config.displace}
-              />
-            </filter>
-          </defs>
-        </svg>
+    <>
+      {/* SVG Preloader */}
+      {isLoaded && (
+        <SVGPreloader
+          displacementDataUri={displacementDataUri}
+          filterId={filterId}
+          onLoad={handlePreloaderLoad}
+        />
+      )}
+      
+      <div 
+        ref={containerRef}
+        className={className}
+        style={containerStyle}
+        {...props}
+      >
+        {/* Fallback glass effect without SVG filter */}
+        <div style={fallbackStyle} />
+        
+        {/* Full glass effect with SVG filter */}
+        <div style={glassMorphismStyle}>
+          <svg 
+            style={{
+              width: "100%",
+              height: "100%",
+              position: "absolute",
+              inset: 0
+            }}
+            xmlns="http://www.w3.org/2000/svg"
+            onLoad={handleSvgLoad}
+          >
+            <defs>
+              <filter 
+                id={filterId}
+                colorInterpolationFilters="sRGB"
+              >
+                <feImage 
+                  href={displacementDataUri}
+                  x="0"
+                  y="0"
+                  width="100%"
+                  height="100%"
+                  result="map"
+                />
+                <feDisplacementMap 
+                  in="SourceGraphic"
+                  in2="map"
+                  scale={config.scale + config.dispersion + (config.displacementScale || 0)}
+                  xChannelSelector={config.x}
+                  yChannelSelector={config.y}
+                  result="dispRed"
+                />
+                <feColorMatrix 
+                  in="dispRed"
+                  type="matrix"
+                  values="1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"
+                  result="red"
+                />
+                <feDisplacementMap 
+                  in="SourceGraphic"
+                  in2="map"
+                  scale={config.scale + config.dispersion + (config.displacementScale || 0)}
+                  xChannelSelector={config.x}
+                  yChannelSelector={config.y}
+                  result="dispGreen"
+                />
+                <feColorMatrix 
+                  in="dispGreen"
+                  type="matrix"
+                  values="0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0"
+                  result="green"
+                />
+                <feDisplacementMap 
+                  in="SourceGraphic"
+                  in2="map"
+                  scale={config.scale + config.dispersion + (config.displacementScale || 0)}
+                  xChannelSelector={config.x}
+                  yChannelSelector={config.y}
+                  result="dispBlue"
+                />
+                <feColorMatrix 
+                  in="dispBlue"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0"
+                  result="blue"
+                />
+                <feBlend 
+                  in="red"
+                  in2="green"
+                  mode="screen"
+                  result="rg"
+                />
+                <feBlend 
+                  in="rg"
+                  in2="blue"
+                  mode="screen"
+                  result="output"
+                />
+                <feGaussianBlur 
+                  in="output"
+                  stdDeviation={config.displace}
+                />
+              </filter>
+            </defs>
+          </svg>
+        </div>
+        <div style={gradientBorderStyle} />
+        <div style={{ position: "relative", zIndex: 3 }}>
+          {children}
+        </div>
       </div>
-      <div style={gradientBorderStyle} />
-      <div style={{ position: "relative", zIndex: 3 }}>
-        {children}
-      </div>
-    </div>
+    </>
   );
 };
 
