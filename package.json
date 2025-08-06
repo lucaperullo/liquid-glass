@@ -2,7 +2,7 @@
   "name": "advanced-liquid-glass-ui",
   "version": "1.0.1",
   "type": "module",
-  "description": "Advanced liquid glass UI components for React with chromatic aberration and dynamic distortion effects",
+  "description": "The most advanced glass morphism React UI library with liquid distortion effects, chromatic aberration, and real-time interactive controls",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -33,9 +33,15 @@
     "liquid",
     "distortion",
     "aberration",
+    "chromatic",
     "effects",
     "modern",
-    "typescript"
+    "typescript",
+    "interactive",
+    "controls",
+    "real-time",
+    "advanced",
+    "premium"
   ],
   "author": {
     "name": "lucaperullo",

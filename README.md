@@ -1,23 +1,21 @@
-# Advanced Liquid Glass UI (ALG UI) 🌟
+# Advanced Liquid Glass UI (ALG UI)
 
 [![npm version](https://badge.fury.io/js/advanced-liquid-glass-ui.svg)](https://badge.fury.io/js/advanced-liquid-glass-ui)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
+[![npm downloads](https://img.shields.io/npm/dm/advanced-liquid-glass-ui.svg)](https://www.npmjs.com/package/advanced-liquid-glass-ui)
 
-> Advanced liquid glass UI components for React with chromatic aberration and dynamic distortion effects
+The most advanced glass morphism React UI library with liquid distortion effects, chromatic aberration, and real-time interactive controls.
 
 ## ✨ Features
 
-- 🔥 **11 Premium Components** - Complete UI library ready to use
-- 🎨 **4 Visual Variants** - default, subtle, intense, minimal
-- 🌈 **Chromatic Aberration** - Advanced RGB separation effects
-- 🌊 **Liquid Distortion** - Dynamic SVG-based distortions
-- 💎 **Glass Morphism** - Realistic frosted glass effects
-- 📱 **Responsive Design** - Works on all screen sizes
-- 🎯 **TypeScript Support** - Full type safety included
-- 🎨 **Tailwind CSS Included** - No separate installation needed
-- 🚀 **Zero Dependencies** - Lightweight and fast
-- 📖 **Comprehensive Docs** - Easy to learn and use
+🎨 **Advanced Glass Morphism** - Realistic liquid glass effects with chromatic aberration  
+🎛️ **Interactive Controls** - Real-time adjustment of all visual properties  
+🌈 **Chromatic Aberration** - RGB channel separation for stunning visual effects  
+💧 **Liquid Distortion** - Dynamic displacement mapping for organic movement  
+🎯 **Precision Controls** - Fine-tune blur, saturation, elasticity, and more  
+🌙 **Over Light Mode** - Dark glass for bright backgrounds  
+📱 **Responsive Design** - Works perfectly on all devices  
+⚡ **Performance Optimized** - Smooth animations and efficient rendering  
+🎨 **Tailwind CSS Included** - No separate installation needed  
 
 ## 🚀 Quick Start
 
@@ -25,21 +23,16 @@
 
 ```bash
 npm install advanced-liquid-glass-ui
-# or
-yarn add advanced-liquid-glass-ui
-# or
-pnpm add advanced-liquid-glass-ui
 ```
 
 ### Import CSS (Required)
 
+**CSS Import:**
 ```css
-/* In your main CSS file */
 @import 'advanced-liquid-glass-ui/alg-ui.css';
 ```
 
-Or in JavaScript/TypeScript:
-
+**JavaScript Import:**
 ```javascript
 import 'advanced-liquid-glass-ui/alg-ui.css';
 ```
@@ -51,222 +44,238 @@ import { LiquidGlass, GlassButton, GlassCard } from 'advanced-liquid-glass-ui';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 to-blue-900 p-8">
-      <GlassCard className="p-6">
-        <h1 className="text-2xl font-bold text-white mb-4">
-          Welcome to Advanced Liquid Glass UI!
-        </h1>
-        <p className="text-white/80 mb-6">
-          The most advanced glass effect library for React.
-        </p>
-        <GlassButton onClick={() => alert('Clicked!')}>
-          Get Started
-        </GlassButton>
-      </GlassCard>
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
+      <LiquidGlass 
+        variant="intense"
+        blurAmount={2.5}
+        saturation={120}
+        chromaticAberration={8}
+        cornerRadius={25}
+      >
+        <div className="p-6 text-white">
+          <h2 className="text-2xl font-bold mb-4">Welcome to ALG UI</h2>
+          <p className="text-white/80 mb-6">
+            Experience the most advanced glass morphism effects in React.
+          </p>
+          <GlassButton variant="default" size="lg">
+            Get Started
+          </GlassButton>
+        </div>
+      </LiquidGlass>
     </div>
   );
 }
 ```
 
-## 📦 Components
+## 🎛️ Advanced Controls
 
-### Core Components
-- **LiquidGlass** - Base component with all effects
-- **GlassButton** - Interactive buttons with hover effects
-- **GlassCard** - Content containers with optional hover
-- **GlassNavbar** - Responsive navigation bars
-- **GlassModal** - Modal dialogs with backdrop blur
-- **GlassSidebar** - Fixed position sidebars
+ALG UI provides unprecedented control over glass morphism effects:
 
-### Form Components  
-- **GlassInput** - Transparent input fields
-- **GlassProgressBar** - Progress indicators
-- **GlassBadge** - Status badges with color variants
-- **GlassTooltip** - Hover tooltips with positioning
-- **GlassStats** - Statistics display grids
+### Core Properties
 
-## 🎨 Variants
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `variant` | `'default' \| 'subtle' \| 'intense' \| 'minimal'` | `'default'` | Glass morphism intensity |
+| `blur` | `number` | `1` | Base blur amount |
+| `blurAmount` | `number` | `0.0` | Precise backdrop blur control |
+| `radius` | `number` | `12` | Border radius |
+| `cornerRadius` | `number` | `52` | Advanced corner radius control |
 
-Choose from 4 carefully crafted presets:
+### Advanced Effects
 
-```jsx
-<GlassCard variant="default">   {/* Balanced effect */}
-<GlassCard variant="subtle">    {/* Minimal, elegant */}
-<GlassCard variant="intense">   {/* High impact */}
-<GlassCard variant="minimal">   {/* Ultra-light */}
-```
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `refractionMode` | `'standard' \| 'polar' \| 'prominent' \| 'shader'` | `'standard'` | Refraction calculation method |
+| `displacementScale` | `number` | `57` | Edge distortion intensity |
+| `saturation` | `number` | `100` | Color saturation (0-200%) |
+| `chromaticAberration` | `number` | `5` | RGB channel separation |
+| `elasticity` | `number` | `0.10` | Cursor interaction intensity |
+| `overLight` | `boolean` | `false` | Dark glass for bright backgrounds |
 
-## 🔧 Customization
-
-Every component accepts custom props for fine-tuning:
+### Example with Advanced Controls
 
 ```jsx
-<LiquidGlass 
-  scale={250}              // Distortion intensity
-  radius={24}              // Border radius
-  frost={0.15}             // Glass opacity
-  backdropBlur={5}         // Background blur
-  borderColor="rgba(255, 215, 0, 0.5)"  // Border color
+<LiquidGlass
+  variant="intense"
+  refractionMode="prominent"
+  displacementScale={80}
+  blurAmount={3.5}
+  saturation={150}
+  chromaticAberration={12}
+  elasticity={0.25}
+  cornerRadius={75}
+  overLight={true}
 >
-  Your content
+  <div className="p-8 text-white">
+    <h1 className="text-3xl font-bold mb-4">Advanced Effects</h1>
+    <p className="text-white/80">
+      Experience the full power of ALG UI with all controls enabled.
+    </p>
+  </div>
 </LiquidGlass>
 ```
 
-## 📖 Component Examples
+## 🧩 Components
 
-### Navigation Bar
+### LiquidGlass
+The core component that provides all glass morphism effects.
+
 ```jsx
-import { GlassNavbar, GlassButton } from 'advanced-liquid-glass-ui';
-
-<GlassNavbar 
-  logo="My App"
-  links={[
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" }
-  ]}
-  actions={<GlassButton size="sm">Login</GlassButton>}
-/>
+<LiquidGlass variant="intense" blurAmount={2.0}>
+  <div className="p-6 text-white">
+    <h2>Glass Content</h2>
+    <p>Your content here</p>
+  </div>
+</LiquidGlass>
 ```
 
-### Modal Dialog
+### GlassButton
+Advanced button component with glass morphism effects.
+
 ```jsx
-import { GlassModal, GlassButton } from 'advanced-liquid-glass-ui';
+<GlassButton 
+  variant="default" 
+  size="lg"
+  blurAmount={1.5}
+  chromaticAberration={6}
+>
+  Click Me
+</GlassButton>
+```
 
-const [isOpen, setIsOpen] = useState(false);
+### GlassCard
+Card component with beautiful glass effects.
 
-<GlassModal 
+```jsx
+<GlassCard 
+  variant="subtle" 
+  hover={true}
+  saturation={110}
+  cornerRadius={30}
+>
+  <div className="p-6 text-white">
+    <h3>Card Title</h3>
+    <p>Card content</p>
+  </div>
+</GlassCard>
+```
+
+### GlassModal
+Modal component with backdrop blur and smooth animations.
+
+```jsx
+<GlassModal
   isOpen={isOpen}
   onClose={() => setIsOpen(false)}
-  size="md"
+  variant="intense"
+  size="lg"
+  blurAmount={4.0}
 >
-  <h2 className="text-2xl font-bold text-white mb-4">
-    Confirm Action
-  </h2>
-  <p className="text-white/80 mb-6">
-    Are you sure you want to proceed?
-  </p>
-  <div className="flex justify-end space-x-3">
-    <GlassButton 
-      variant="subtle" 
-      onClick={() => setIsOpen(false)}
-    >
-      Cancel
-    </GlassButton>
-    <GlassButton onClick={handleConfirm}>
-      Confirm
-    </GlassButton>
+  <div className="text-white">
+    <h2>Modal Title</h2>
+    <p>Modal content</p>
   </div>
 </GlassModal>
 ```
 
-### Form with Progress
-```jsx
-import { GlassCard, GlassInput, GlassProgressBar, GlassButton } from 'advanced-liquid-glass-ui';
+### GlassInput
+Input field with glass morphism effects.
 
-<GlassCard className="p-8">
-  <h2 className="text-2xl font-bold text-white mb-6">Sign Up</h2>
-  
-  <div className="space-y-4">
-    <GlassInput 
-      type="email"
-      placeholder="Enter your email"
-      value={email}
-      onChange={(e) => setEmail(e.target.value)}
-    />
-    
-    <GlassInput 
-      type="password"
-      placeholder="Create password"
-      value={password}
-      onChange={(e) => setPassword(e.target.value)}
-    />
-    
-    <GlassProgressBar 
-      value={passwordStrength} 
-      showLabel={false}
-    />
-    
-    <GlassButton className="w-full">
-      Create Account
-    </GlassButton>
-  </div>
-</GlassCard>
+```jsx
+<GlassInput
+  type="email"
+  placeholder="Enter your email"
+  variant="default"
+  blurAmount={1.0}
+  saturation={90}
+/>
 ```
 
-### Statistics Dashboard
+### GlassProgressBar
+Progress bar with glass morphism effects.
+
 ```jsx
-import { GlassStats, GlassBadge } from 'advanced-liquid-glass-ui';
-
-const stats = [
-  { value: "42K", label: "Active Users" },
-  { value: "1.2K", label: "Projects" },
-  { value: "99.9%", label: "Uptime" },
-  { value: "$2.4M", label: "Revenue" }
-];
-
-<div className="space-y-6">
-  <GlassStats stats={stats} />
-  
-  <div className="flex space-x-2">
-    <GlassBadge color="success">Online</GlassBadge>
-    <GlassBadge color="warning">Pending</GlassBadge>
-    <GlassBadge color="error">Offline</GlassBadge>
-  </div>
-</div>
+<GlassProgressBar
+  value={75}
+  max={100}
+  variant="intense"
+  blurAmount={2.0}
+  showLabel={true}
+/>
 ```
 
-## 🎯 Best Practices
+### GlassBadge
+Badge component with glass effects.
 
-### 1. Use Colorful Backgrounds
-LiquidGlass effects are most visible on colorful or patterned backgrounds:
+```jsx
+<GlassBadge 
+  color="success" 
+  variant="intense"
+  chromaticAberration={4}
+>
+  Success
+</GlassBadge>
+```
 
-```css
-.app-background {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  /* or */
-  background: radial-gradient(circle, #ff6b6b, #4ecdc4, #45b7d1);
+## 🎨 Variants
+
+### Default
+Balanced glass morphism effects for most use cases.
+
+### Subtle
+Gentle effects for elegant, minimal interfaces.
+
+### Intense
+Maximum visual impact with dramatic effects.
+
+### Minimal
+Barely noticeable effects for clean designs.
+
+## 🌟 Advanced Features
+
+### Real-time Interactive Controls
+All components support real-time adjustment of visual properties through Storybook controls.
+
+### Chromatic Aberration
+Advanced RGB channel separation for stunning visual effects.
+
+### Elasticity
+Components respond to cursor interaction with configurable intensity.
+
+### Over Light Mode
+Dark glass effects for better visibility on bright backgrounds.
+
+### Precision Blur Control
+Separate controls for base blur and backdrop blur amounts.
+
+## 📦 Installation & Setup
+
+### Requirements
+- React 16.8+ (for hooks support)
+- Tailwind CSS is included in the package
+
+### Step 1: Install
+```bash
+npm install advanced-liquid-glass-ui
+```
+
+### Step 2: Import CSS
+```javascript
+import 'advanced-liquid-glass-ui/alg-ui.css';
+```
+
+### Step 3: Use Components
+```jsx
+import { LiquidGlass, GlassButton } from 'advanced-liquid-glass-ui';
+
+function App() {
+  return (
+    <LiquidGlass variant="intense">
+      <GlassButton>Hello World</GlassButton>
+    </LiquidGlass>
+  );
 }
 ```
-
-### 2. Ensure Text Contrast
-Always use light text on glass components:
-
-```jsx
-<GlassCard>
-  <h1 className="text-white font-bold">High Contrast Title</h1>
-  <p className="text-white/80">Readable secondary text</p>
-</GlassCard>
-```
-
-### 3. Layer Different Variants
-Create visual hierarchy with different variants:
-
-```jsx
-<GlassNavbar variant="minimal" />      {/* Subtle header */}
-<GlassCard variant="default" />        {/* Main content */}
-<GlassButton variant="intense" />      {/* Call-to-action */}
-```
-
-### 4. Performance Considerations
-- Use `minimal` variant for better performance
-- Limit the number of glass components in viewport
-- Consider `React.memo()` for static components
-
-## 🔍 Browser Support
-
-- ✅ Chrome 76+
-- ✅ Firefox 70+
-- ✅ Safari 14+
-- ✅ Edge 79+
-
-*Requires CSS `backdrop-filter` support*
-
-## 📋 Requirements
-
-- React 16.8+
-- Modern browser with backdrop-filter support
-- Tailwind CSS is included in the package
 
 ## 🛠️ Development
 
@@ -285,60 +294,32 @@ npm test
 
 # Build for production
 npm run build
+
+# Start Storybook
+npm run storybook
 ```
 
-## 🐛 Troubleshooting
+## 📚 Documentation
 
-### Effects not visible?
-- Ensure you have a colorful background
-- Check browser support for `backdrop-filter`
-- Verify no z-index conflicts
-
-### Performance issues?
-- Use `variant="minimal"` for lighter effects
-- Reduce the number of glass components
-- Check for unnecessary re-renders
-
-### TypeScript errors?
-- Ensure React types are installed: `npm i -D @types/react @types/react-dom`
-- Check TypeScript version compatibility (5.0+)
-
-## 📝 Changelog
-
-### v1.0.0
-- 🎉 Initial release
-- ✨ 11 component library
-- 🎨 4 visual variants
-- 🔧 Full TypeScript support
-- 📖 Complete documentation
+- [Component API Reference](./docs/components.md)
+- [Advanced Controls Guide](./docs/advanced-controls.md)
+- [Examples & Demos](./docs/examples.md)
+- [Performance Tips](./docs/performance.md)
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+We welcome contributions! Please see our [Contributing Guide](./CONTRIBUTING.md) for details.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
-## 🙏 Acknowledgments
-
-- Inspired by modern glass morphism design trends
-- Built with advanced SVG filter techniques
-- Thanks to the React community for feedback and support
-
-## 📞 Support
+## 🆘 Support
 
 - 📧 Email: lucaperullo@outlook.it
 - 🐛 Issues: [GitHub Issues](https://github.com/lucaperullo/liquid-glass/issues)
-- 📖 Docs: [Documentation](https://advanced-liquid-glass-docs.com)
-- 💬 Discord: [Join our community](https://discord.gg/advanced-liquid-glass)
+- 📖 Documentation: [Full Documentation](./docs)
 
 ---
 
-Made with ❤️ by the Advanced Liquid Glass UI (ALG UI) team
+**Advanced Liquid Glass UI (ALG UI) team** - Creating the future of glass morphism effects in React.

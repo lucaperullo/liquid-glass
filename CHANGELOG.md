@@ -2,108 +2,118 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [1.0.1] - 2024-12-19
 
-## [Unreleased]
+### ✨ Added - Advanced Interactive Controls
 
-### Added
-- Placeholder for upcoming features
+#### 🎛️ New Advanced Properties
+- **Refraction Mode** - Control refraction calculation method (`standard`, `polar`, `prominent`, `shader`)
+- **Displacement Scale** - Fine-tune edge distortion intensity (0-200)
+- **Blur Amount** - Precise backdrop blur control (0-20)
+- **Saturation** - Color saturation control (0-200%)
+- **Chromatic Aberration** - RGB channel separation intensity (0-20)
+- **Elasticity** - Cursor interaction intensity (0-1)
+- **Corner Radius** - Advanced corner radius control (0-100px)
+- **Over Light** - Dark glass for bright backgrounds
 
-### Changed
-- Placeholder for changes
+#### 🔧 Enhanced Core Properties
+- **Blur Control** - Fixed blur property functionality and added `blurAmount` for precise control
+- **Real-time Controls** - All properties now work in real-time through Storybook controls
+- **Performance Optimization** - Improved rendering efficiency for complex effects
 
-### Deprecated
-- Placeholder for deprecated features
+#### 🎨 Component Improvements
+- **LiquidGlass** - Enhanced with all new advanced properties
+- **GlassButton** - Added blur and chromatic aberration controls
+- **GlassCard** - Improved hover effects and blur controls
+- **GlassModal** - Enhanced backdrop blur and size controls
+- **GlassInput** - Added blur and saturation controls
+- **GlassProgressBar** - Improved visual effects and blur controls
+- **GlassBadge** - Enhanced color variants and blur effects
 
-### Removed
-- Placeholder for removed features
+#### 📚 Documentation Updates
+- **Comprehensive README** - Complete rewrite with advanced controls documentation
+- **SETUP.md** - Updated with all new properties and examples
+- **Storybook Stories** - Enhanced with interactive controls for all components
+- **Type Definitions** - Complete TypeScript support for all new properties
 
-### Fixed
-- Placeholder for bug fixes
+#### 🎯 New Features
+- **Interactive Storybook** - Real-time control panels for all properties
+- **Advanced Presets** - Enhanced default configurations for all variants
+- **Performance Monitoring** - Optimized rendering for complex effects
+- **Browser Compatibility** - Improved support for modern browsers
 
-### Security
-- Placeholder for security updates
+#### 🐛 Bug Fixes
+- Fixed blur property not working correctly in LiquidGlass component
+- Resolved chromatic aberration calculation issues
+- Fixed corner radius application in all components
+- Improved backdrop blur performance
 
-## [1.0.0] - 2024-12-19
+#### 📦 Build Improvements
+- Enhanced Rollup configuration for better tree-shaking
+- Improved CSS bundling with PostCSS
+- Better TypeScript declarations
+- Optimized package size
 
-### Added
-- 🎉 Initial release of LiquidGlass UI library
-- ✨ **LiquidGlass** base component with advanced SVG filters
-- 🔘 **GlassButton** interactive button component
-- 📄 **GlassCard** content container with hover effects
-- 🧭 **GlassNavbar** responsive navigation component  
-- 🪟 **GlassModal** modal dialog with backdrop blur
-- 🔗 **GlassSidebar** fixed position sidebar component
-- 📝 **GlassInput** transparent form input fields
-- 📊 **GlassProgressBar** animated progress indicators
-- 🏷️ **GlassBadge** status badges with color variants
-- 💬 **GlassTooltip** hover tooltips with positioning
-- 📈 **GlassStats** statistics display grid component
+## [1.0.0] - 2024-12-18
 
-### Features
-- 🎨 **4 Visual Variants**: default, subtle, intense, minimal
-- 🌈 **Chromatic Aberration**: Advanced RGB separation effects
-- 🌊 **Liquid Distortion**: Dynamic SVG-based distortions  
-- 💎 **Glass Morphism**: Realistic frosted glass effects
-- 📱 **Responsive Design**: Mobile-first approach
-- 🎯 **TypeScript Support**: Full type safety and IntelliSense
-- 🔧 **Customizable Props**: Fine-tune every aspect
-- 🚀 **Zero Dependencies**: Lightweight and performant
-- ♿ **Accessible**: WCAG compliant markup
-- 🧪 **Well Tested**: Comprehensive test coverage
+### 🎉 Initial Release
 
-### Technical
-- Built with React 18+ and TypeScript 5+
-- Optimized bundle size with tree shaking
-- Server-side rendering (SSR) compatible  
-- Modern CSS with backdrop-filter support
-- Automated CI/CD pipeline
-- Comprehensive Storybook documentation
-- Jest + React Testing Library for testing
-- ESLint + Prettier for code quality
+#### ✨ Core Features
+- **11 Premium Components** - Complete UI library ready to use
+- **4 Visual Variants** - default, subtle, intense, minimal
+- **Chromatic Aberration** - Advanced RGB separation effects
+- **Liquid Distortion** - Dynamic SVG-based distortions
+- **Glass Morphism** - Realistic frosted glass effects
+- **Responsive Design** - Works on all screen sizes
+- **TypeScript Support** - Full type safety included
+- **Tailwind CSS Included** - No separate installation needed
 
-### Documentation
-- 📖 Complete API documentation
-- 🎨 Interactive Storybook examples
-- 🚀 Quick start guide
-- 💡 Best practices and usage tips
-- 🔧 Customization examples
-- 🐛 Troubleshooting guide
+#### 🧩 Components
+- **LiquidGlass** - Base component with all effects
+- **GlassButton** - Interactive buttons with hover effects
+- **GlassCard** - Content containers with optional hover
+- **GlassNavbar** - Responsive navigation bars
+- **GlassModal** - Modal dialogs with backdrop blur
+- **GlassSidebar** - Fixed position sidebars
+- **GlassInput** - Transparent input fields
+- **GlassProgressBar** - Progress indicators
+- **GlassBadge** - Status badges with color variants
+- **GlassTooltip** - Hover tooltips with positioning
+- **GlassStats** - Statistics display grids
 
-### Browser Support
-- ✅ Chrome 76+ (backdrop-filter support)
-- ✅ Firefox 70+ (backdrop-filter support)  
-- ✅ Safari 14+ (backdrop-filter support)
-- ✅ Edge 79+ (backdrop-filter support)
+#### 🎨 Features
+- **4 Visual Variants** - Carefully crafted presets
+- **Customizable Properties** - Fine-tune all effects
+- **Hover Effects** - Interactive animations
+- **Color Variants** - Multiple color schemes
+- **Size Variants** - Responsive sizing
+- **Accessibility** - ARIA support and keyboard navigation
+
+#### 📚 Documentation
+- **Comprehensive README** - Complete setup and usage guide
+- **SETUP.md** - Quick start guide
+- **Storybook Documentation** - Interactive component showcase
+- **TypeScript Definitions** - Full type safety
+
+#### 🛠️ Development
+- **Modern Build System** - Rollup with TypeScript
+- **Storybook Integration** - Interactive development environment
+- **Testing Setup** - Jest and React Testing Library
+- **Linting** - ESLint with TypeScript support
+- **CI/CD Ready** - Automated testing and building
 
 ---
 
-## Release Notes Format
+## Versioning
 
-### Version Schema
-We follow [Semantic Versioning](https://semver.org/):
-- **MAJOR** version: incompatible API changes
-- **MINOR** version: backwards-compatible functionality additions  
-- **PATCH** version: backwards-compatible bug fixes
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/lucaperullo/liquid-glass/tags).
 
-### Change Categories
-- **Added** for new features
-- **Changed** for changes in existing functionality
-- **Deprecated** for soon-to-be removed features
-- **Removed** for now removed features
-- **Fixed** for any bug fixes
-- **Security** for vulnerability fixes
+## Support
 
-### Emoji Legend
-- 🎉 Major release
-- ✨ New feature
-- 🔧 Enhancement
-- 🐛 Bug fix
-- 📖 Documentation
-- 🔒 Security
-- ⚠️ Deprecated
-- 💥 Breaking change
-- 🚀 Performance
-- 🎨 Styling
-- ♿ Accessibility
+- 📧 Email: lucaperullo@outlook.it
+- 🐛 Issues: [GitHub Issues](https://github.com/lucaperullo/liquid-glass/issues)
+- 📖 Documentation: [Full Documentation](./docs)
+
+---
+
+**Advanced Liquid Glass UI (ALG UI) team** - Creating the future of glass morphism effects in React.
