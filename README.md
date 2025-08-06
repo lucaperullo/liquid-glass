@@ -1,6 +1,6 @@
-# LiquidGlass UI 🌟
+# Advanced Liquid Glass UI (ALG UI) 🌟
 
-[![npm version](https://badge.fury.io/js/liquid-glass.svg)](https://badge.fury.io/js/liquid-glass)
+[![npm version](https://badge.fury.io/js/advanced-liquid-glass.svg)](https://badge.fury.io/js/advanced-liquid-glass)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
 
@@ -23,24 +23,24 @@
 ### Installation
 
 ```bash
-npm install liquid-glass
+npm install advanced-liquid-glass
 # or
-yarn add liquid-glass
+yarn add advanced-liquid-glass
 # or
-pnpm add liquid-glass
+pnpm add advanced-liquid-glass
 ```
 
 ### Basic Usage
 
 ```jsx
-import { LiquidGlass, GlassButton, GlassCard } from 'liquid-glass';
+import { LiquidGlass, GlassButton, GlassCard } from 'advanced-liquid-glass';
 
 function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 to-blue-900 p-8">
       <GlassCard className="p-6">
         <h1 className="text-2xl font-bold text-white mb-4">
-          Welcome to LiquidGlass UI!
+          Welcome to Advanced Liquid Glass UI!
         </h1>
         <p className="text-white/80 mb-6">
           The most advanced glass effect library for React.
@@ -102,7 +102,7 @@ Every component accepts custom props for fine-tuning:
 
 ### Navigation Bar
 ```jsx
-import { GlassNavbar, GlassButton } from 'liquid-glass';
+import { GlassNavbar, GlassButton } from 'advanced-liquid-glass';
 
 <GlassNavbar 
   logo="My App"
@@ -117,7 +117,7 @@ import { GlassNavbar, GlassButton } from 'liquid-glass';
 
 ### Modal Dialog
 ```jsx
-import { GlassModal, GlassButton } from 'liquid-glass';
+import { GlassModal, GlassButton } from 'advanced-liquid-glass';
 
 const [isOpen, setIsOpen] = useState(false);
 
@@ -148,7 +148,7 @@ const [isOpen, setIsOpen] = useState(false);
 
 ### Form with Progress
 ```jsx
-import { GlassCard, GlassInput, GlassProgressBar, GlassButton } from 'liquid-glass';
+import { GlassCard, GlassInput, GlassProgressBar, GlassButton } from 'advanced-liquid-glass';
 
 <GlassCard className="p-8">
   <h2 className="text-2xl font-bold text-white mb-6">Sign Up</h2>
@@ -182,7 +182,7 @@ import { GlassCard, GlassInput, GlassProgressBar, GlassButton } from 'liquid-gla
 
 ### Statistics Dashboard
 ```jsx
-import { GlassStats, GlassBadge } from 'liquid-glass';
+import { GlassStats, GlassBadge } from 'advanced-liquid-glass';
 
 const stats = [
   { value: "42K", label: "Active Users" },
@@ -258,7 +258,7 @@ Create visual hierarchy with different variants:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/liquid-glass.git
+git clone https://github.com/lucaperullo/liquid-glass.git
 
 # Install dependencies
 npm install
@@ -320,11 +320,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- 📧 Email: support@liquid-glass.com
-- 🐛 Issues: [GitHub Issues](https://github.com/yourusername/liquid-glass/issues)
-- 📖 Docs: [Documentation](https://liquid-glass-docs.com)
-- 💬 Discord: [Join our community](https://discord.gg/liquid-glass)
+- 📧 Email: lucaperullo@outlook.it
+- 🐛 Issues: [GitHub Issues](https://github.com/lucaperullo/liquid-glass/issues)
+- 📖 Docs: [Documentation](https://advanced-liquid-glass-docs.com)
+- 💬 Discord: [Join our community](https://discord.gg/advanced-liquid-glass)
 
 ---
 
-Made with ❤️ by the LiquidGlass UI team
+Made with ❤️ by the Advanced Liquid Glass UI (ALG UI) team
