@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liquid Glass Demo</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        .glass-button {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .glass-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+        .glass-card {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        .glass-badge {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .glass-input {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.5rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .glass-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .glass-input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        const { useState } = React;
+        
+        // Glass Components
+        const LiquidGlass = ({ children, className = "", style = {}, ...props }) => (
+            <div 
+                className={`glass-effect rounded-lg p-4 ${className}`}
+                style={style}
+                {...props}
+            >
+                {children}
+            </div>
+        );
+        
+        const GlassButton = ({ children, onClick, className = "", ...props }) => (
+            <button
+                onClick={onClick}
+                className={`glass-button ${className}`}
+                {...props}
+            >
+                {children}
+            </button>
+        );
+        
+        const GlassCard = ({ children, className = "", ...props }) => (
+            <div 
+                className={`glass-card ${className}`}
+                {...props}
+            >
+                {children}
+            </div>
+        );
+        
+        const GlassBadge = ({ children, color = "default", className = "", ...props }) => {
+            const colorClasses = {
+                default: "glass-badge",
+                success: "glass-badge bg-green-500/20 text-green-200",
+                warning: "glass-badge bg-yellow-500/20 text-yellow-200",
+                error: "glass-badge bg-red-500/20 text-red-200",
+                info: "glass-badge bg-blue-500/20 text-blue-200"
+            };
+            
+            return (
+                <span 
+                    className={`${colorClasses[color]} ${className}`}
+                    {...props}
+                >
+                    {children}
+                </span>
+            );
+        };
+        
+        const GlassInput = ({ placeholder, value, onChange, className = "", ...props }) => (
+            <input
+                type="text"
+                placeholder={placeholder}
+                value={value}
+                onChange={onChange}
+                className={`glass-input ${className}`}
+                {...props}
+            />
+        );
+        
+        const GlassNavbar = ({ logo, actions, className = "", ...props }) => (
+            <nav className={`glass-effect p-4 mb-8 ${className}`} {...props}>
+                <div className="flex justify-between items-center">
+                    <div>{logo}</div>
+                    <div className="flex items-center space-x-3">{actions}</div>
+                </div>
+            </nav>
+        );
+        
+        const GlassStats = ({ stats, className = "", ...props }) => (
+            <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 ${className}`} {...props}>
+                {stats.map((stat, index) => (
+                    <div key={index} className="glass-card text-center">
+                        <div className="text-2xl font-bold text-white">{stat.value}</div>
+                        <div className="text-white/80 text-sm">{stat.label}</div>
+                    </div>
+                ))}
+            </div>
+        );
+        
+        const Demo = () => {
+            const [count, setCount] = useState(0);
+            const [inputValue, setInputValue] = useState('');
+            
+            const stats = [
+                { value: "12.4K", label: "Total Users" },
+                { value: "2.8K", label: "Active Sessions" },
+                { value: "98.5%", label: "Uptime" },
+                { value: "$45.2K", label: "Revenue" }
+            ];
+            
+            return (
+                <div className="min-h-screen">
+                    {/* Header */}
+                    <GlassNavbar
+                        logo={
+                            <div className="flex items-center space-x-3">
+                                <span className="text-xl font-bold text-white">Liquid Glass Demo</span>
+                            </div>
+                        }
+                        actions={
+                            <div className="flex items-center space-x-3">
+                                <GlassBadge color="success">Online</GlassBadge>
+                                <GlassButton>Profile</GlassButton>
+                            </div>
+                        }
+                    />
+
+                    {/* Main Content */}
+                    <div className="container mx-auto px-6 py-8">
+                        {/* Hero Section */}
+                        <LiquidGlass className="p-8 mb-8">
+                            <h1 className="text-4xl font-bold text-white mb-4">
+                                Welcome to Liquid Glass
+                            </h1>
+                            <p className="text-white/80 mb-6 text-lg">
+                                Advanced liquid glass UI components with chromatic aberration and dynamic distortion effects.
+                            </p>
+                            <div className="flex gap-4">
+                                <GlassButton onClick={() => setCount(count + 1)}>
+                                    Click me! ({count})
+                                </GlassButton>
+                                <GlassButton>
+                                    Learn More
+                                </GlassButton>
+                            </div>
+                        </LiquidGlass>
+
+                        {/* Stats Section */}
+                        <div className="mb-8">
+                            <h2 className="text-2xl font-semibold text-white mb-4">Statistics</h2>
+                            <GlassStats stats={stats} />
+                        </div>
+
+                        {/* Cards Section */}
+                        <div className="mb-8">
+                            <h2 className="text-2xl font-semibold text-white mb-4">Feature Cards</h2>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <GlassCard>
+                                    <h3 className="text-xl font-semibold text-white mb-2">Glass Morphism</h3>
+                                    <p className="text-white/80">Beautiful blur effects and transparency for modern UI design.</p>
+                                </GlassCard>
+                                <GlassCard>
+                                    <h3 className="text-xl font-semibold text-white mb-2">Chromatic Aberration</h3>
+                                    <p className="text-white/80">Advanced color separation effects for stunning visual appeal.</p>
+                                </GlassCard>
+                                <GlassCard>
+                                    <h3 className="text-xl font-semibold text-white mb-2">Dynamic Distortion</h3>
+                                    <p className="text-white/80">Interactive distortion effects that respond to user interactions.</p>
+                                </GlassCard>
+                            </div>
+                        </div>
+
+                        {/* Input Section */}
+                        <div className="mb-8">
+                            <h2 className="text-2xl font-semibold text-white mb-4">Form Elements</h2>
+                            <div className="max-w-md">
+                                <GlassInput
+                                    placeholder="Enter your name..."
+                                    value={inputValue}
+                                    onChange={(e) => setInputValue(e.target.value)}
+                                    className="mb-4"
+                                />
+                                <div className="flex gap-2">
+                                    <GlassBadge>Default</GlassBadge>
+                                    <GlassBadge color="success">Success</GlassBadge>
+                                    <GlassBadge color="warning">Warning</GlassBadge>
+                                    <GlassBadge color="error">Error</GlassBadge>
+                                    <GlassBadge color="info">Info</GlassBadge>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+        
+        ReactDOM.render(<Demo />, document.getElementById('root'));
+    </script>
+</body>
+</html> 

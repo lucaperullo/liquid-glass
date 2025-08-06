@@ -1,0 +1,48 @@
+# Source files
+src/
+stories/
+tests/
+docs/
+examples/
+.storybook/
+
+# Configuration files
+*.config.js
+*.config.ts
+tsconfig.json
+.eslintrc.js
+.eslintrc.json
+jest.config.js
+.babelrc
+.babelrc.js
+
+# Development files
+.gitignore
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+
+# CI/CD files
+.github/
+.travis.yml
+.circleci/
+
+# Testing and coverage
+coverage/
+.nyc_output/
+
+# Temporary files
+tmp/
+temp/
+*.log
+*.tmp
+
+# Development dependencies
+node_modules/
