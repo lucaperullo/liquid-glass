@@ -1,6 +1,32 @@
 import { GlassVariant, ButtonSize, ModalSize } from '../types/common';
 
 export const GLASS_PRESETS: Record<GlassVariant, any> = {
+  clean: {
+    scale: 160,
+    border: 0.05,
+    lightness: 53,
+    displace: 0.38,
+    alpha: 0.9,
+    blur: 5,
+    dispersion: 50,
+    frost: 0.1,
+    borderColor: 'rgba(120, 120, 120, 0.7)',
+    refractionMode: 'prominent',
+    displacementScale: 160,
+    blurAmount: 5.0,
+    saturation: 120,
+    chromaticAberration: 50,
+    elasticity: 0.38,
+    cornerRadius: 50,
+    overLight: false,
+    // New functional properties
+    intensity: 90,
+    accentColor: undefined,
+    tint: undefined,
+    contrast: 75,
+    glow: true,
+    highlight: true
+  },
   default: {
     scale: 20,
     border: 0.1,
@@ -18,7 +44,14 @@ export const GLASS_PRESETS: Record<GlassVariant, any> = {
     chromaticAberration: 5,
     elasticity: 0.10,
     cornerRadius: 52,
-    overLight: false
+    overLight: false,
+    // New functional properties
+    intensity: 70,
+    accentColor: undefined,
+    tint: undefined,
+    contrast: 60,
+    glow: false,
+    highlight: false
   },
   subtle: {
     scale: 10,
@@ -37,7 +70,14 @@ export const GLASS_PRESETS: Record<GlassVariant, any> = {
     chromaticAberration: 2,
     elasticity: 0.05,
     cornerRadius: 25,
-    overLight: false
+    overLight: false,
+    // New functional properties
+    intensity: 50,
+    accentColor: undefined,
+    tint: undefined,
+    contrast: 40,
+    glow: false,
+    highlight: false
   },
   intense: {
     scale: 30,
@@ -56,7 +96,14 @@ export const GLASS_PRESETS: Record<GlassVariant, any> = {
     chromaticAberration: 8,
     elasticity: 0.15,
     cornerRadius: 75,
-    overLight: false
+    overLight: false,
+    // New functional properties
+    intensity: 85,
+    accentColor: undefined,
+    tint: undefined,
+    contrast: 80,
+    glow: true,
+    highlight: true
   },
   minimal: {
     scale: 5,
@@ -75,7 +122,45 @@ export const GLASS_PRESETS: Record<GlassVariant, any> = {
     chromaticAberration: 1,
     elasticity: 0.02,
     cornerRadius: 12,
-    overLight: false
+    overLight: false,
+    // New functional properties
+    intensity: 30,
+    accentColor: undefined,
+    tint: undefined,
+    contrast: 20,
+    glow: false,
+    highlight: false
+  }
+};
+
+// New functional presets for interactive components
+export const FUNCTIONAL_GLASS_PRESETS = {
+  progress: {
+    ...GLASS_PRESETS.default,
+    intensity: 80,
+    contrast: 70,
+    glow: true,
+    highlight: true,
+    frost: 0.15,
+    lightness: 88
+  },
+  slider: {
+    ...GLASS_PRESETS.intense,
+    intensity: 85,
+    contrast: 75,
+    glow: true,
+    highlight: true,
+    frost: 0.12,
+    lightness: 85
+  },
+  interactive: {
+    ...GLASS_PRESETS.default,
+    intensity: 75,
+    contrast: 65,
+    glow: true,
+    highlight: true,
+    frost: 0.12,
+    lightness: 87
   }
 };
 

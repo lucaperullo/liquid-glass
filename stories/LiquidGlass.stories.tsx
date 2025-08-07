@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import LiquidGlass from '../src/components/LiquidGlass';
+import { AlgUIThemeProvider } from '../src/context/algUIThemeContext';
 
 // Background images for testing
 const backgrounds = [
@@ -385,10 +386,17 @@ const meta: Meta = {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <AlgUIThemeProvider defaultTheme="crystal-light">
+        <Story />
+      </AlgUIThemeProvider>
+    ),
+  ],
   argTypes: {
     variant: {
       control: { type: 'select' },
-      options: ['default', 'subtle', 'intense', 'minimal'],
+      options: ['clean', 'default', 'subtle', 'intense', 'minimal'],
     },
     scale: {
       control: { type: 'range', min: 5, max: 50, step: 1 },
@@ -437,11 +445,11 @@ export const InteractiveDemo: Story = {
 export const Default: Story = {
   render: () => (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center p-8">
-      <LiquidGlass variant="default" className="w-80">
+      <LiquidGlass variant="clean" className="w-80">
         <div className="p-6 text-white">
-          <h3 className="text-xl font-bold mb-3">Default Liquid Glass</h3>
+          <h3 className="text-xl font-bold mb-3">Clean Liquid Glass</h3>
           <p className="text-white/80 mb-4">
-            This is the default variant with balanced chromatic aberration and distortion effects.
+            This is the clean variant with advanced liquid distortion and chromatic aberration effects.
           </p>
           <button className="px-4 py-2 bg-white/20 text-white rounded hover:bg-white/30 transition-colors">
             Get Started
@@ -455,7 +463,13 @@ export const Default: Story = {
 export const Variants: Story = {
   render: () => (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center p-8">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <LiquidGlass variant="clean" className="w-48">
+          <div className="p-4 text-white text-center">
+            <h4 className="font-bold mb-2">Clean</h4>
+            <p className="text-white/80 text-sm">Advanced liquid distortion</p>
+          </div>
+        </LiquidGlass>
         <LiquidGlass variant="default" className="w-48">
           <div className="p-4 text-white text-center">
             <h4 className="font-bold mb-2">Default</h4>
@@ -483,4 +497,23 @@ export const Variants: Story = {
       </div>
     </div>
   ),
+};
+
+export const Clean: Story = {
+  args: {
+    variant: 'clean',
+    children: (
+      <div className="p-6 text-center">
+        <h3 className="text-xl font-semibold mb-2">Clean Glass</h3>
+        <p className="text-sm opacity-80">Advanced liquid distortion effect</p>
+      </div>
+    ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Clean variant with advanced liquid distortion effects, chromatic aberration, and enhanced displacement mapping.',
+      },
+    },
+  },
 };

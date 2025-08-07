@@ -41,7 +41,7 @@ const BackgroundSelector: React.FC<{
 
 const LiquidInputDemo: React.FC = () => {
   const [currentBg, setCurrentBg] = useState(0);
-  const [variant, setVariant] = useState<'default' | 'subtle' | 'intense' | 'minimal'>('default');
+  const [variant, setVariant] = useState<'clean' | 'default' | 'subtle' | 'intense' | 'minimal'>('clean');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [search, setSearch] = useState('');
@@ -71,6 +71,7 @@ const LiquidInputDemo: React.FC = () => {
               onChange={(e) => setVariant(e.target.value as any)}
               className="w-full px-2 py-1 text-sm bg-white/10 text-white rounded border border-white/20"
             >
+              <option value="clean">Clean</option>
               <option value="default">Default</option>
               <option value="subtle">Subtle</option>
               <option value="intense">Intense</option>
@@ -196,7 +197,7 @@ const meta: Meta = {
   argTypes: {
     variant: {
       control: { type: 'select' },
-      options: ['default', 'subtle', 'intense', 'minimal'],
+      options: ['clean', 'default', 'subtle', 'intense', 'minimal'],
     },
     type: {
       control: { type: 'select' },

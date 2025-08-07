@@ -2,152 +2,243 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.0.4] - 2024-12-19
+## [1.4.0] - 2024-01-XX
 
-### 🔧 Fixed - Story Import Issues
+### ✨ Added
+- **LiquidTextarea**: Professional multi-line text input with glass effects
+  - Character count display with maxLength support
+  - Tab key support for indentation
+  - Error handling and validation
+  - Multiple sizes (sm, md, lg) and variants
+  - Mobile-compatible with touch support
 
-#### 🐛 Bug Fixes
-- **Fixed Story Import Errors** - Replaced all `Glass*` component imports with `Liquid*` components in Storybook stories
-- **Fixed Prop Name Issues** - Changed `value` prop to `progress` prop in LiquidProgressBar components
-- **Fixed Modal Props** - Removed unsupported `isOpen` and `onClose` props from LiquidModal components
-- **Fixed Component References** - Updated all story titles and meta objects to use correct component names
+- **LiquidRadio**: Glass-effect radio button groups
+  - Vertical and horizontal layout options
+  - Custom glass styling with theme integration
+  - Keyboard navigation and accessibility
+  - Multiple sizes and variants
+  - Error state support
 
-#### 📚 Storybook Improvements
-- **LiquidBadge Stories** - Fixed all component references and prop names
-- **LiquidButton Stories** - Updated imports and component usage
-- **LiquidCard Stories** - Fixed component imports and props
-- **LiquidInput Stories** - Updated component references
-- **LiquidModal Stories** - Fixed modal state management and removed unsupported props
-- **LiquidNavbar Stories** - Updated component interface to match actual implementation
-- **LiquidProgressBar Stories** - Fixed progress prop names and removed unsupported props
-- **LiquidSidebar Stories** - Updated component references
-- **LiquidStats Stories** - Fixed component imports
-- **LiquidTooltip Stories** - Updated component references
-- **Showcase Stories** - Fixed all component references and prop names
-- **FormComponents Stories** - Updated progress bar prop names
-- **DisplayComponents Stories** - Fixed component imports
-- **OverlayComponents Stories** - Fixed modal and sidebar component usage
+- **LiquidDatePicker**: Advanced date selection component
+  - Interactive calendar popup with glass effects
+  - Min/max date constraints
+  - Keyboard navigation support
+  - Mobile-compatible touch interactions
+  - Custom date formatting options
 
-#### 🎯 Technical Improvements
-- **TypeScript Compatibility** - All stories now use correct component interfaces
-- **Build System** - Fixed import resolution issues
-- **Development Experience** - Storybook now runs without import errors
-- **Component Consistency** - All stories match actual component implementations
+- **LiquidFileUpload**: Drag & drop file upload component
+  - Drag and drop functionality with visual feedback
+  - File type and size validation
+  - Multiple file selection support
+  - Progress feedback and file preview
+  - Glass effects on drop zone
 
-## [1.0.1] - 2024-12-19
+- **LiquidColorPicker**: Professional color selection tool
+  - HSL controls (Hue, Saturation, Lightness)
+  - Preset color palette support
+  - Hex input with validation
+  - Glass effects on color preview
+  - Mobile-compatible touch controls
 
-## [1.0.1] - 2024-12-19
+- **LiquidRange**: Dual-handle range slider component
+  - Two draggable handles for range selection
+  - Glass effects on track and thumbs
+  - Keyboard navigation for both handles
+  - Touch support for mobile devices
+  - Customizable min/max/step values
 
-### ✨ Added - Advanced Interactive Controls
+- **LiquidAlert**: Glass-effect notification system
+  - Four alert types: info, success, warning, error
+  - Dismissible alerts with close functionality
+  - Custom icons for each alert type
+  - Multiple sizes and variants
+  - Glass effects with theme integration
 
-#### 🎛️ New Advanced Properties
-- **Refraction Mode** - Control refraction calculation method (`standard`, `polar`, `prominent`, `shader`)
-- **Displacement Scale** - Fine-tune edge distortion intensity (0-200)
-- **Blur Amount** - Precise backdrop blur control (0-20)
-- **Saturation** - Color saturation control (0-200%)
-- **Chromatic Aberration** - RGB channel separation intensity (0-20)
-- **Elasticity** - Cursor interaction intensity (0-1)
-- **Corner Radius** - Advanced corner radius control (0-100px)
-- **Over Light** - Dark glass for bright backgrounds
+### 🎨 Enhanced
+- **Theme Integration**: All new components fully integrate with the glass theme system
+- **Mobile Compatibility**: Touch support and responsive design for all components
+- **Accessibility**: Full ARIA support and keyboard navigation
+- **Performance**: Optimized rendering and smooth animations
+- **Type Safety**: Complete TypeScript support with proper type definitions
 
-#### 🔧 Enhanced Core Properties
-- **Blur Control** - Fixed blur property functionality and added `blurAmount` for precise control
-- **Real-time Controls** - All properties now work in real-time through Storybook controls
-- **Performance Optimization** - Improved rendering efficiency for complex effects
+### 📚 Documentation
+- **Storybook Stories**: Comprehensive examples for all new components
+- **Interactive Controls**: Live editing of component properties
+- **Usage Examples**: Real-world implementation scenarios
+- **API Documentation**: Complete prop documentation
 
-#### 🎨 Component Improvements
-- **LiquidGlass** - Enhanced with all new advanced properties
-- **GlassButton** - Added blur and chromatic aberration controls
-- **GlassCard** - Improved hover effects and blur controls
-- **GlassModal** - Enhanced backdrop blur and size controls
-- **GlassInput** - Added blur and saturation controls
-- **GlassProgressBar** - Improved visual effects and blur controls
-- **GlassBadge** - Enhanced color variants and blur effects
+### 🔧 Technical Details
+- **Glass Effects**: Consistent backdrop blur and gradient backgrounds
+- **Theme Colors**: Dynamic color adaptation based on light/dark themes
+- **Event Handling**: Proper mouse, touch, and keyboard event management
+- **State Management**: Efficient state updates and change propagation
+- **Error Boundaries**: Graceful error handling and user feedback
 
-#### 📚 Documentation Updates
-- **Comprehensive README** - Complete rewrite with advanced controls documentation
-- **SETUP.md** - Updated with all new properties and examples
-- **Storybook Stories** - Enhanced with interactive controls for all components
-- **Type Definitions** - Complete TypeScript support for all new properties
+### 🚀 Performance
+- **Lazy Loading**: Components load efficiently with minimal bundle impact
+- **Smooth Animations**: 60fps animations with CSS transitions
+- **Memory Management**: Proper cleanup of event listeners and timers
+- **Rendering Optimization**: Efficient re-renders and minimal DOM updates
 
-#### 🎯 New Features
-- **Interactive Storybook** - Real-time control panels for all properties
-- **Advanced Presets** - Enhanced default configurations for all variants
-- **Performance Monitoring** - Optimized rendering for complex effects
-- **Browser Compatibility** - Improved support for modern browsers
+## [1.3.0] - 2024-01-XX
 
-#### 🐛 Bug Fixes
-- Fixed blur property not working correctly in LiquidGlass component
-- Resolved chromatic aberration calculation issues
-- Fixed corner radius application in all components
-- Improved backdrop blur performance
+### ✨ Added
+- **LiquidSwitch**: Professional glass-effect toggle switches with smooth animations
+- **LiquidCheckbox**: Glass-effect checkboxes with custom styling and animations
+- **LiquidSlider**: Single-value slider with glass effects and touch support
+- **LiquidTooltip**: Positioned tooltips with glass effects and animations
+- **LiquidModal**: Fullscreen modal with glass effects and mobile compatibility
 
-#### 📦 Build Improvements
-- Enhanced Rollup configuration for better tree-shaking
-- Improved CSS bundling with PostCSS
-- Better TypeScript declarations
-- Optimized package size
+### 🎨 Enhanced
+- **Mobile Compatibility**: All new components support touch interactions
+- **Accessibility**: Full ARIA support and keyboard navigation
+- **Theme Integration**: Dynamic glass effects based on theme colors
+- **Animation System**: Smooth transitions and micro-interactions
 
-## [1.0.0] - 2024-12-18
+### 📚 Documentation
+- **Storybook Stories**: Interactive examples for all new components
+- **Usage Examples**: Real-world implementation scenarios
+- **API Documentation**: Complete prop documentation and type definitions
+
+## [1.2.0] - 2024-01-XX
+
+### 🎨 Changed
+- **AlgUIThemeSwitch**: Changed from toggle switch to select dropdown for better UX
+- **Theme System**: Enhanced with system preference auto-detection
+- **Color Integration**: Full Tailwind CSS color palette integration
+
+### ✨ Added
+- **System Theme Auto-detect**: Automatic detection of system light/dark preference
+- **Tailwind Color Integration**: Direct access to Tailwind color palette
+- **Glass Color Utilities**: Helper functions for creating glass color combinations
+- **Semantic Color Mapping**: Predefined semantic color mappings
+- **Theme Context Enhancement**: Extended context with system theme information
+
+### 🔧 Technical
+- **Theme Provider**: Updated to handle 'system' theme preference
+- **Color Utilities**: New utility functions for color manipulation
+- **Type Safety**: Enhanced TypeScript definitions for theme system
+- **Performance**: Optimized theme switching and color calculations
+
+## [1.1.1] - 2024-01-XX
+
+### 🔧 Fixed
+- **AlgUIThemeSwitch Stories**: Updated stories to use new API without deprecated `showLabel` property
+- **TypeScript Errors**: Resolved all TypeScript errors in stories
+- **Storybook Compatibility**: All stories now work with the new component API
+
+### 📚 Updated
+- **Theme Switch Stories**: Now demonstrate Light/Dark/System theme switching
+- **Component Examples**: Updated to use `variant="clean"` and `showSystem` properties
+- **Documentation**: Stories now reflect the actual component capabilities
+
+## [1.1.0] - 2024-01-XX
+
+### ✨ Added
+- **Clean Variant**: New 'clean' variant for all components with advanced glass effects
+- **Storybook Controls**: Interactive controls for all component variants
+- **Demo GIF**: Added algui_effect.gif to showcase liquid glass effects
+- **System Theme Auto-detect**: Automatic detection of system light/dark preference
+- **Tailwind Color Integration**: Direct integration with Tailwind CSS color palette
+
+### 🎨 Enhanced
+- **Glass Effects**: Advanced liquid distortion and chromatic aberration effects
+- **Theme System**: Enhanced with system preference detection and Tailwind colors
+- **Component Variants**: All components now support the 'clean' variant
+- **Documentation**: Updated README with comprehensive feature descriptions
+
+### 📚 Documentation
+- **Live Demo**: Added demo GIF showcasing liquid glass effects
+- **Feature Sections**: Detailed sections for system auto-detect and Tailwind integration
+- **Component Examples**: Updated examples to use the new 'clean' variant
+- **Professional Features**: Added sections highlighting advanced capabilities
+
+### 🔧 Technical
+- **Theme Context**: Enhanced with system theme detection capabilities
+- **Color Utilities**: New utility functions for Tailwind color manipulation
+- **Glass Effects**: Improved liquid distortion algorithms
+- **Performance**: Optimized rendering for smooth animations
+
+## [1.0.4] - 2024-01-XX
+
+### 🔧 Fixed
+- **LiquidTabs Props**: Fixed TypeScript error where `items` prop was incorrectly used instead of `tabs`
+- **Storybook Examples**: Updated Showcase story to use correct prop name
+- **Type Safety**: Ensured all component props are properly typed
+
+### 📚 Updated
+- **Component Documentation**: Updated examples to use correct prop names
+- **Storybook Stories**: Fixed all stories to use proper component APIs
+- **Type Definitions**: Enhanced type safety across all components
+
+## [1.0.3] - 2024-01-XX
+
+### ✨ Added
+- **LiquidTabs**: Tabbed interface component with glass effects
+- **LiquidModal**: Modal dialog component with glass backdrop
+- **LiquidNavbar**: Navigation bar with glass styling
+- **LiquidSidebar**: Sidebar component with glass effects
+- **LiquidProgressBar**: Progress indicator with glass styling
+- **LiquidStats**: Statistics display component with glass effects
+- **LiquidSelect**: Dropdown select component with glass styling
+- **LiquidBadge**: Badge component with glass effects
+
+### 🎨 Enhanced
+- **Glass Effects**: Improved backdrop blur and transparency effects
+- **Theme Integration**: Better integration with light/dark themes
+- **Component Styling**: Enhanced glass morphism effects across all components
+- **Accessibility**: Improved ARIA support and keyboard navigation
+
+### 📚 Documentation
+- **Storybook Stories**: Added comprehensive stories for all new components
+- **Usage Examples**: Provided real-world usage examples
+- **API Documentation**: Complete prop documentation for all components
+
+## [1.0.2] - 2024-01-XX
+
+### ✨ Added
+- **LiquidButton**: Button component with glass effects and multiple variants
+- **LiquidCard**: Card component with glass styling and hover effects
+- **LiquidInput**: Input field component with glass effects
+- **AlgUIThemeSwitch**: Theme switching component with glass styling
+
+### 🎨 Enhanced
+- **Glass Effects**: Enhanced backdrop blur and transparency effects
+- **Theme System**: Improved theme switching and color management
+- **Component Styling**: Better glass morphism effects
+- **Accessibility**: Enhanced keyboard navigation and ARIA support
+
+### 📚 Documentation
+- **Storybook Integration**: Added comprehensive Storybook documentation
+- **Usage Examples**: Provided detailed usage examples
+- **API Documentation**: Complete documentation for all components
+
+## [1.0.1] - 2024-01-XX
+
+### ✨ Added
+- **LiquidGlass**: Core glass effect component with advanced liquid distortion
+- **Theme System**: Light and dark theme support with glass effects
+- **Glass Effects**: Backdrop blur, transparency, and liquid distortion
+- **Responsive Design**: Mobile-compatible glass effects
+
+### 🎨 Enhanced
+- **Glass Morphism**: Advanced glass morphism effects with liquid distortion
+- **Theme Integration**: Seamless integration with light/dark themes
+- **Performance**: Optimized rendering for smooth animations
+- **Accessibility**: Full ARIA support and keyboard navigation
+
+### 📚 Documentation
+- **README**: Comprehensive documentation with usage examples
+- **Storybook**: Interactive documentation with live examples
+- **API Reference**: Complete API documentation for all components
+
+## [1.0.0] - 2024-01-XX
 
 ### 🎉 Initial Release
-
-#### ✨ Core Features
-- **11 Premium Components** - Complete UI library ready to use
-- **4 Visual Variants** - default, subtle, intense, minimal
-- **Chromatic Aberration** - Advanced RGB separation effects
-- **Liquid Distortion** - Dynamic SVG-based distortions
-- **Glass Morphism** - Realistic frosted glass effects
-- **Responsive Design** - Works on all screen sizes
-- **TypeScript Support** - Full type safety included
-- **Tailwind CSS Included** - No separate installation needed
-
-#### 🧩 Components
-- **LiquidGlass** - Base component with all effects
-- **GlassButton** - Interactive buttons with hover effects
-- **GlassCard** - Content containers with optional hover
-- **GlassNavbar** - Responsive navigation bars
-- **GlassModal** - Modal dialogs with backdrop blur
-- **GlassSidebar** - Fixed position sidebars
-- **GlassInput** - Transparent input fields
-- **GlassProgressBar** - Progress indicators
-- **GlassBadge** - Status badges with color variants
-- **GlassTooltip** - Hover tooltips with positioning
-- **GlassStats** - Statistics display grids
-
-#### 🎨 Features
-- **4 Visual Variants** - Carefully crafted presets
-- **Customizable Properties** - Fine-tune all effects
-- **Hover Effects** - Interactive animations
-- **Color Variants** - Multiple color schemes
-- **Size Variants** - Responsive sizing
-- **Accessibility** - ARIA support and keyboard navigation
-
-#### 📚 Documentation
-- **Comprehensive README** - Complete setup and usage guide
-- **SETUP.md** - Quick start guide
-- **Storybook Documentation** - Interactive component showcase
-- **TypeScript Definitions** - Full type safety
-
-#### 🛠️ Development
-- **Modern Build System** - Rollup with TypeScript
-- **Storybook Integration** - Interactive development environment
-- **Testing Setup** - Jest and React Testing Library
-- **Linting** - ESLint with TypeScript support
-- **CI/CD Ready** - Automated testing and building
-
----
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/lucaperullo/liquid-glass/tags).
-
-## Support
-
-- 📧 Email: lucaperullo@outlook.it
-- 🐛 Issues: [GitHub Issues](https://github.com/lucaperullo/liquid-glass/issues)
-- 📖 Documentation: [Full Documentation](./docs)
-
----
-
-**Advanced Liquid Glass UI (ALG UI) team** - Creating the future of glass morphism effects in React.
+- **Core Components**: LiquidGlass, LiquidButton, LiquidCard, LiquidInput
+- **Theme System**: Light and dark theme support
+- **Glass Effects**: Advanced glass morphism with liquid distortion
+- **TypeScript Support**: Full TypeScript support with proper type definitions
+- **Storybook Integration**: Interactive documentation and examples
+- **Responsive Design**: Mobile-compatible glass effects
+- **Accessibility**: ARIA support and keyboard navigation

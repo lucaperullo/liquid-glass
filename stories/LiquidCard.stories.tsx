@@ -12,7 +12,7 @@ const meta: Meta<typeof LiquidCard> = {
   argTypes: {
     variant: {
       control: { type: 'select' },
-      options: ['default', 'subtle', 'intense', 'minimal'],
+      options: ['clean', 'default', 'subtle', 'intense', 'minimal'],
     },
     blur: {
       control: { type: 'range', min: 0, max: 10, step: 0.1 },
@@ -52,7 +52,7 @@ const BackgroundSelector: React.FC<{ currentBg: number; onBgChange: (index: numb
 export const Default: Story = {
   render: () => {
     const [currentBg, setCurrentBg] = useState(0);
-    const [variant, setVariant] = useState<'default' | 'subtle' | 'intense' | 'minimal'>('default');
+    const [variant, setVariant] = useState<'clean' | 'default' | 'subtle' | 'intense' | 'minimal'>('clean');
     const [blur, setBlur] = useState(1);
 
     return (
@@ -78,6 +78,7 @@ export const Default: Story = {
                 onChange={(e) => setVariant(e.target.value as any)}
                 className="w-full px-2 py-1 text-sm bg-white/10 text-white rounded border border-white/20"
               >
+                <option value="clean">Clean</option>
                 <option value="default">Default</option>
                 <option value="subtle">Subtle</option>
                 <option value="intense">Intense</option>

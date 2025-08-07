@@ -5,4 +5,11 @@ export interface LiquidProgressBarProps extends BaseGlassProps {
   showLabel?: boolean;
   className?: string;
   style?: React.CSSProperties;
+  // New functional properties
+  intensity?: number;
+  accentColor?: string;
+  tint?: string;
+  contrast?: number;
+  glow?: boolean;
+  highlight?: boolean;
 }

@@ -14,6 +14,17 @@ const config: StorybookConfig = {
   "framework": {
     "name": "@storybook/react-vite",
     "options": {}
-  }
+  },
+  "viteFinal": async (config) => {
+    // Ensure CSS files are processed
+    if (config.css) {
+      config.css.preprocessorOptions = {
+        ...config.css.preprocessorOptions,
+      };
+    }
+    
+    return config;
+  },
 };
+
 export default config;

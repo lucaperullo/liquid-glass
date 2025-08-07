@@ -1,325 +1,275 @@
-# Advanced Liquid Glass UI (ALG UI)
+# 🎨 algUI - Advanced Liquid Glass UI Library
 
-[![npm version](https://badge.fury.io/js/advanced-liquid-glass-ui.svg)](https://badge.fury.io/js/advanced-liquid-glass-ui)
-[![npm downloads](https://img.shields.io/npm/dm/advanced-liquid-glass-ui.svg)](https://www.npmjs.com/package/advanced-liquid-glass-ui)
+A comprehensive React component library featuring advanced liquid glass effects with dual theme system, functional properties, and experimental components.
 
-The most advanced glass morphism React UI library with liquid distortion effects, chromatic aberration, and real-time interactive controls.
+## 🎬 Demo
+
+![algUI Liquid Glass Effects](algui_effect.gif)
+
+*Watch the advanced liquid distortion effects in action - real-time chromatic aberration, displacement mapping, and dynamic glass morphism.*
 
 ## ✨ Features
 
-🎨 **Advanced Glass Morphism** - Realistic liquid glass effects with chromatic aberration  
-🎛️ **Interactive Controls** - Real-time adjustment of all visual properties  
-🌈 **Chromatic Aberration** - RGB channel separation for stunning visual effects  
-💧 **Liquid Distortion** - Dynamic displacement mapping for organic movement  
-🎯 **Precision Controls** - Fine-tune blur, saturation, elasticity, and more  
-🌙 **Over Light Mode** - Dark glass for bright backgrounds  
-📱 **Responsive Design** - Works perfectly on all devices  
-⚡ **Performance Optimized** - Smooth animations and efficient rendering  
-🎨 **Tailwind CSS Included** - No separate installation needed  
+### 🎨 **Tailwind-Integrated Theme System**
+- **Crystal Light**: Transparent, clean, subtle glass effects
+- **Plasma Dark**: Dark, professional, elegant glass effects
+- **System Auto-detect**: Automatically follows your system theme preference
+- **Tailwind Color Palette**: Full integration with Tailwind CSS colors
+- **Semantic Colors**: Easy-to-use semantic color system
+- Smooth transitions and theme persistence
+- Global theme provider with CSS variables
+
+### 🧩 **Complete Component Library**
+- **Core Components**: LiquidGlass, LiquidButton, LiquidCard, LiquidBadge
+- **Form Components**: LiquidInput, LiquidSelect, LiquidSwitch, LiquidCheckbox, LiquidSlider
+- **Layout Components**: LiquidNavbar, LiquidSidebar, LiquidTabs, LiquidModal
+- **Display Components**: LiquidProgressBar, LiquidStats, LiquidTooltip
+- **Theme System**: AlgUIThemeProvider, AlgUIThemeSwitch
+
+### 🌟 **Advanced Glass Effects**
+- **Liquid Distortion**: Real-time chromatic aberration and displacement mapping
+- **Clean Variant**: Advanced liquid distortion with professional effects
+- **Multiple Variants**: Default, subtle, intense, minimal, clean
+- **Responsive Design**: Mobile-first approach with touch support
+- **Accessibility**: Full ARIA support and keyboard navigation
+
+### 🎯 **Professional Features**
+- **Mobile Compatible**: Touch gestures and responsive design
+- **Fullscreen Modals**: Immersive modal experiences
+- **Interactive Controls**: Switches, checkboxes, sliders with glass effects
+- **Tooltip System**: Contextual information with glass styling
+- **Theme Switching**: Dropdown select for Light/Dark/System themes
 
 ## 🚀 Quick Start
 
 ### Installation
 
 ```bash
-npm install advanced-liquid-glass-ui
-```
-
-### Import CSS (Required)
-
-**CSS Import:**
-```css
-@import 'advanced-liquid-glass-ui/alg-ui.css';
-```
-
-**JavaScript Import:**
-```javascript
-import 'advanced-liquid-glass-ui/alg-ui.css';
+npm install algui
 ```
 
 ### Basic Usage
 
-```jsx
-import { LiquidGlass, GlassButton, GlassCard } from 'advanced-liquid-glass-ui';
+```tsx
+import { 
+  LiquidGlass, 
+  LiquidButton, 
+  AlgUIThemeProvider 
+} from 'algui';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
-      <LiquidGlass 
-        variant="intense"
-        blurAmount={2.5}
-        saturation={120}
-        chromaticAberration={8}
-        cornerRadius={25}
-      >
-        <div className="p-6 text-white">
-          <h2 className="text-2xl font-bold mb-4">Welcome to ALG UI</h2>
-          <p className="text-white/80 mb-6">
-            Experience the most advanced glass morphism effects in React.
-          </p>
-          <GlassButton variant="default" size="lg">
+    <AlgUIThemeProvider defaultTheme="system">
+      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
+        <LiquidGlass variant="clean" className="p-8">
+          <h1 className="text-3xl font-bold text-white mb-4">
+            Welcome to algUI
+          </h1>
+          <LiquidButton variant="clean" size="lg">
             Get Started
-          </GlassButton>
-        </div>
-      </LiquidGlass>
-    </div>
+          </LiquidButton>
+        </LiquidGlass>
+      </div>
+    </AlgUIThemeProvider>
   );
 }
 ```
 
-## 🎛️ Advanced Controls
+## 📚 Component Examples
 
-ALG UI provides unprecedented control over glass morphism effects:
+### Form Components
 
-### Core Properties
+```tsx
+import { LiquidSwitch, LiquidCheckbox, LiquidSlider } from 'algui';
 
-| Property | Type | Default | Description |
-|----------|------|---------|-------------|
-| `variant` | `'default' \| 'subtle' \| 'intense' \| 'minimal'` | `'default'` | Glass morphism intensity |
-| `blur` | `number` | `1` | Base blur amount |
-| `blurAmount` | `number` | `0.0` | Precise backdrop blur control |
-| `radius` | `number` | `12` | Border radius |
-| `cornerRadius` | `number` | `52` | Advanced corner radius control |
+// Interactive Switch
+<LiquidSwitch
+  checked={isEnabled}
+  onChange={setIsEnabled}
+  label="Enable notifications"
+  variant="clean"
+/>
 
-### Advanced Effects
+// Professional Checkbox
+<LiquidCheckbox
+  checked={isAccepted}
+  onChange={setIsAccepted}
+  label="Accept terms and conditions"
+  variant="clean"
+/>
 
-| Property | Type | Default | Description |
-|----------|------|---------|-------------|
-| `refractionMode` | `'standard' \| 'polar' \| 'prominent' \| 'shader'` | `'standard'` | Refraction calculation method |
-| `displacementScale` | `number` | `57` | Edge distortion intensity |
-| `saturation` | `number` | `100` | Color saturation (0-200%) |
-| `chromaticAberration` | `number` | `5` | RGB channel separation |
-| `elasticity` | `number` | `0.10` | Cursor interaction intensity |
-| `overLight` | `boolean` | `false` | Dark glass for bright backgrounds |
-
-### Example with Advanced Controls
-
-```jsx
-<LiquidGlass
-  variant="intense"
-  refractionMode="prominent"
-  displacementScale={80}
-  blurAmount={3.5}
-  saturation={150}
-  chromaticAberration={12}
-  elasticity={0.25}
-  cornerRadius={75}
-  overLight={true}
->
-  <div className="p-8 text-white">
-    <h1 className="text-3xl font-bold mb-4">Advanced Effects</h1>
-    <p className="text-white/80">
-      Experience the full power of ALG UI with all controls enabled.
-    </p>
-  </div>
-</LiquidGlass>
+// Glass Effect Slider
+<LiquidSlider
+  value={volume}
+  onChange={setVolume}
+  min={0}
+  max={100}
+  label="Volume"
+  variant="clean"
+/>
 ```
 
-## 🧩 Components
+### Modal System
 
-### LiquidGlass
-The core component that provides all glass morphism effects.
+```tsx
+import { LiquidModal, LiquidButton } from 'algui';
 
-```jsx
-<LiquidGlass variant="intense" blurAmount={2.0}>
-  <div className="p-6 text-white">
-    <h2>Glass Content</h2>
-    <p>Your content here</p>
-  </div>
-</LiquidGlass>
-```
+const [isOpen, setIsOpen] = useState(false);
 
-### GlassButton
-Advanced button component with glass morphism effects.
+<LiquidButton onClick={() => setIsOpen(true)}>
+  Open Modal
+</LiquidButton>
 
-```jsx
-<GlassButton 
-  variant="default" 
-  size="lg"
-  blurAmount={1.5}
-  chromaticAberration={6}
->
-  Click Me
-</GlassButton>
-```
-
-### GlassCard
-Card component with beautiful glass effects.
-
-```jsx
-<GlassCard 
-  variant="subtle" 
-  hover={true}
-  saturation={110}
-  cornerRadius={30}
->
-  <div className="p-6 text-white">
-    <h3>Card Title</h3>
-    <p>Card content</p>
-  </div>
-</GlassCard>
-```
-
-### GlassModal
-Modal component with backdrop blur and smooth animations.
-
-```jsx
-<GlassModal
+<LiquidModal
   isOpen={isOpen}
   onClose={() => setIsOpen(false)}
-  variant="intense"
-  size="lg"
-  blurAmount={4.0}
+  title="Fullscreen Modal"
+  size="full"
+  variant="clean"
 >
-  <div className="text-white">
-    <h2>Modal Title</h2>
-    <p>Modal content</p>
+  <div className="space-y-4">
+    <h3 className="text-xl font-semibold text-white">
+      Immersive Experience
+    </h3>
+    <p className="text-white/80">
+      This modal takes up the full screen with glass effects.
+    </p>
   </div>
-</GlassModal>
+</LiquidModal>
 ```
 
-### GlassInput
-Input field with glass morphism effects.
+### Tooltip System
 
-```jsx
-<GlassInput
-  type="email"
-  placeholder="Enter your email"
-  variant="default"
-  blurAmount={1.0}
-  saturation={90}
-/>
-```
+```tsx
+import { LiquidTooltip } from 'algui';
 
-### GlassProgressBar
-Progress bar with glass morphism effects.
-
-```jsx
-<GlassProgressBar
-  value={75}
-  max={100}
-  variant="intense"
-  blurAmount={2.0}
-  showLabel={true}
-/>
-```
-
-### GlassBadge
-Badge component with glass effects.
-
-```jsx
-<GlassBadge 
-  color="success" 
-  variant="intense"
-  chromaticAberration={4}
+<LiquidTooltip
+  content="This is a glass-effect tooltip"
+  position="top"
+  variant="clean"
 >
-  Success
-</GlassBadge>
+  <LiquidButton>Hover me</LiquidButton>
+</LiquidTooltip>
 ```
 
-## 🎨 Variants
+## 🎨 System Theme Auto-detect
 
-### Default
-Balanced glass morphism effects for most use cases.
-
-### Subtle
-Gentle effects for elegant, minimal interfaces.
-
-### Intense
-Maximum visual impact with dramatic effects.
-
-### Minimal
-Barely noticeable effects for clean designs.
-
-## 🌟 Advanced Features
-
-### Real-time Interactive Controls
-All components support real-time adjustment of visual properties through Storybook controls.
-
-### Chromatic Aberration
-Advanced RGB channel separation for stunning visual effects.
-
-### Elasticity
-Components respond to cursor interaction with configurable intensity.
-
-### Over Light Mode
-Dark glass effects for better visibility on bright backgrounds.
-
-### Precision Blur Control
-Separate controls for base blur and backdrop blur amounts.
-
-## 📦 Installation & Setup
-
-### Requirements
-- React 16.8+ (for hooks support)
-- Tailwind CSS is included in the package
-
-### Step 1: Install
-```bash
-npm install advanced-liquid-glass-ui
-```
-
-### Step 2: Import CSS
-```javascript
-import 'advanced-liquid-glass-ui/alg-ui.css';
-```
-
-### Step 3: Use Components
-```jsx
-import { LiquidGlass, GlassButton } from 'advanced-liquid-glass-ui';
+```tsx
+import { AlgUIThemeProvider, AlgUIThemeSwitch } from 'algui';
 
 function App() {
   return (
-    <LiquidGlass variant="intense">
-      <GlassButton>Hello World</GlassButton>
-    </LiquidGlass>
+    <AlgUIThemeProvider defaultTheme="system">
+      <div>
+        <AlgUIThemeSwitch showSystem={true} />
+        {/* Your app content */}
+      </div>
+    </AlgUIThemeProvider>
   );
 }
 ```
+
+## 🌈 Tailwind Color Integration
+
+```tsx
+import { getTailwindColor, getSemanticColor, createGlassColor } from 'algui';
+
+// Get Tailwind colors
+const blue500 = getTailwindColor('blue', 500);
+
+// Use semantic colors
+const primaryColor = getSemanticColor('primary', isDark);
+
+// Create glass colors
+const glassColor = createGlassColor('#3B82F6', 0.2);
+```
+
+## 📖 Documentation
+
+### Storybook
+
+```bash
+npm run storybook
+```
+
+Visit `http://localhost:6006` to explore all components with interactive examples.
+
+### Available Stories
+
+- **Form Components/**: LiquidSwitch, LiquidCheckbox, LiquidSlider
+- **Overlay Components/**: LiquidModal (with fullscreen support)
+- **Display Components/**: LiquidTooltip, LiquidProgressBar
+- **Theme System/**: Theme demonstrations
+- **Showcase/**: Complete component showcase
 
 ## 🛠️ Development
 
 ```bash
-# Clone the repository
-git clone https://github.com/lucaperullo/liquid-glass.git
-
 # Install dependencies
 npm install
 
-# Start development
-npm run build:watch
+# Start Storybook
+npm run storybook
+
+# Build library
+npm run build
 
 # Run tests
 npm test
-
-# Build for production
-npm run build
-
-# Start Storybook
-npm run storybook
 ```
 
-## 📚 Documentation
+## 📦 Available Components
 
-- [Component API Reference](./docs/components.md)
-- [Advanced Controls Guide](./docs/advanced-controls.md)
-- [Examples & Demos](./docs/examples.md)
-- [Performance Tips](./docs/performance.md)
+### Core Components
+- `LiquidGlass` - Base glass effect container
+- `LiquidButton` - Interactive buttons with glass effects
+- `LiquidCard` - Content cards with glass styling
+- `LiquidBadge` - Status indicators with glass effects
 
-## 🤝 Contributing
+### Form Components
+- `LiquidInput` - Text input with glass styling
+- `LiquidSelect` - Dropdown select with glass effects
+- `LiquidSwitch` - Toggle switches with glass styling
+- `LiquidCheckbox` - Checkboxes with glass effects
+- `LiquidSlider` - Range sliders with glass styling
 
-We welcome contributions! Please see our [Contributing Guide](./CONTRIBUTING.md) for details.
+### Layout Components
+- `LiquidNavbar` - Navigation bars with glass effects
+- `LiquidSidebar` - Sidebar navigation with glass styling
+- `LiquidTabs` - Tab navigation with glass effects
+- `LiquidModal` - Modal dialogs with fullscreen support
+
+### Display Components
+- `LiquidProgressBar` - Progress indicators with glass effects
+- `LiquidStats` - Statistics display with glass styling
+- `LiquidTooltip` - Contextual tooltips with glass effects
+
+### Theme System
+- `AlgUIThemeProvider` - Theme context provider
+- `AlgUIThemeSwitch` - Theme selection dropdown
+- `useAlgUITheme` - Theme hook for components
+
+## 🎯 Key Features
+
+### Mobile Compatibility
+- Touch gesture support for all interactive components
+- Responsive design that works on all screen sizes
+- Optimized performance for mobile devices
+
+### Accessibility
+- Full ARIA support for screen readers
+- Keyboard navigation for all components
+- Focus management in modals and overlays
+
+### Performance
+- Optimized glass effect calculations
+- Efficient theme switching
+- Minimal bundle size impact
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
-
-## 🆘 Support
-
-- 📧 Email: lucaperullo@outlook.it
-- 🐛 Issues: [GitHub Issues](https://github.com/lucaperullo/liquid-glass/issues)
-- 📖 Documentation: [Full Documentation](./docs)
+MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-**Advanced Liquid Glass UI (ALG UI) team** - Creating the future of glass morphism effects in React.
+**algUI** - Advanced Liquid Glass UI Library with Tailwind integration and system theme detection.

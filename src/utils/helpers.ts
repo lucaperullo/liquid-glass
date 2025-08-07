@@ -1,5 +1,16 @@
-import { GLASS_PRESETS } from './constants';
+import { GLASS_PRESETS, FUNCTIONAL_GLASS_PRESETS } from './constants';
 import { GlassVariant, BaseGlassProps } from '../types/common';
+
+// Cache for SVG generation to improve performance
+const svgCache = new Map<string, string>();
+
+const generateCacheKey = (
+  width: number,
+  height: number,
+  config: ReturnType<typeof getGlassConfig>
+): string => {
+  return `${width}x${height}-${JSON.stringify(config)}`;
+};
 
 export const getGlassConfig = (
   variant: GlassVariant,
@@ -26,6 +37,53 @@ export const getGlassConfig = (
     ...(overrides.elasticity !== undefined && { elasticity: overrides.elasticity }),
     ...(overrides.cornerRadius !== undefined && { cornerRadius: overrides.cornerRadius }),
     ...(overrides.overLight !== undefined && { overLight: overrides.overLight }),
+    // New functional properties
+    ...(overrides.intensity !== undefined && { intensity: overrides.intensity }),
+    ...(overrides.accentColor !== undefined && { accentColor: overrides.accentColor }),
+    ...(overrides.tint !== undefined && { tint: overrides.tint }),
+    ...(overrides.contrast !== undefined && { contrast: overrides.contrast }),
+    ...(overrides.glow !== undefined && { glow: overrides.glow }),
+    ...(overrides.highlight !== undefined && { highlight: overrides.highlight }),
+    radius: overrides.radius || 12,
+    blend: "difference" as const,
+    x: "R" as const,
+    y: "B" as const
+  };
+};
+
+// New helper for functional components
+export const getFunctionalGlassConfig = (
+  type: 'progress' | 'slider' | 'interactive',
+  overrides: Partial<BaseGlassProps> = {}
+) => {
+  const preset = FUNCTIONAL_GLASS_PRESETS[type];
+  
+  return {
+    ...preset,
+    ...(overrides.scale !== undefined && { scale: overrides.scale }),
+    ...(overrides.border !== undefined && { border: overrides.border }),
+    ...(overrides.lightness !== undefined && { lightness: overrides.lightness }),
+    ...(overrides.displace !== undefined && { displace: overrides.displace }),
+    ...(overrides.alpha !== undefined && { alpha: overrides.alpha }),
+    ...(overrides.blur !== undefined && { blur: overrides.blur }),
+    ...(overrides.dispersion !== undefined && { dispersion: overrides.dispersion }),
+    ...(overrides.frost !== undefined && { frost: overrides.frost }),
+    ...(overrides.borderColor !== undefined && { borderColor: overrides.borderColor }),
+    ...(overrides.refractionMode !== undefined && { refractionMode: overrides.refractionMode }),
+    ...(overrides.displacementScale !== undefined && { displacementScale: overrides.displacementScale }),
+    ...(overrides.blurAmount !== undefined && { blurAmount: overrides.blurAmount }),
+    ...(overrides.saturation !== undefined && { saturation: overrides.saturation }),
+    ...(overrides.chromaticAberration !== undefined && { chromaticAberration: overrides.chromaticAberration }),
+    ...(overrides.elasticity !== undefined && { elasticity: overrides.elasticity }),
+    ...(overrides.cornerRadius !== undefined && { cornerRadius: overrides.cornerRadius }),
+    ...(overrides.overLight !== undefined && { overLight: overrides.overLight }),
+    // New functional properties
+    ...(overrides.intensity !== undefined && { intensity: overrides.intensity }),
+    ...(overrides.accentColor !== undefined && { accentColor: overrides.accentColor }),
+    ...(overrides.tint !== undefined && { tint: overrides.tint }),
+    ...(overrides.contrast !== undefined && { contrast: overrides.contrast }),
+    ...(overrides.glow !== undefined && { glow: overrides.glow }),
+    ...(overrides.highlight !== undefined && { highlight: overrides.highlight }),
     radius: overrides.radius || 12,
     blend: "difference" as const,
     x: "R" as const,
@@ -38,6 +96,13 @@ export const generateDisplacementSVG = (
   height: number,
   config: ReturnType<typeof getGlassConfig>
 ): string => {
+  const cacheKey = generateCacheKey(width, height, config);
+  
+  // Check cache first
+  if (svgCache.has(cacheKey)) {
+    return svgCache.get(cacheKey)!;
+  }
+
   const newwidth = width / 2;
   const newheight = height / 2;
   const border = Math.min(newwidth, newheight) * (config.border * 0.5);
@@ -71,7 +136,12 @@ export const generateDisplacementSVG = (
     </svg>
   `;
   
-  return `data:image/svg+xml,${encodeURIComponent(svgContent)}`;
+  const dataUri = `data:image/svg+xml,${encodeURIComponent(svgContent)}`;
+  
+  // Cache the result
+  svgCache.set(cacheKey, dataUri);
+  
+  return dataUri;
 };
 
 export const combineClassNames = (...classes: (string | undefined | null | false)[]): string => {
