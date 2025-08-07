@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.4] - 2024-12-19
+
+### 🔧 Fixed - Story Import Issues
+
+#### 🐛 Bug Fixes
+- **Fixed Story Import Errors** - Replaced all `Glass*` component imports with `Liquid*` components in Storybook stories
+- **Fixed Prop Name Issues** - Changed `value` prop to `progress` prop in LiquidProgressBar components
+- **Fixed Modal Props** - Removed unsupported `isOpen` and `onClose` props from LiquidModal components
+- **Fixed Component References** - Updated all story titles and meta objects to use correct component names
+
+#### 📚 Storybook Improvements
+- **LiquidBadge Stories** - Fixed all component references and prop names
+- **LiquidButton Stories** - Updated imports and component usage
+- **LiquidCard Stories** - Fixed component imports and props
+- **LiquidInput Stories** - Updated component references
+- **LiquidModal Stories** - Fixed modal state management and removed unsupported props
+- **LiquidNavbar Stories** - Updated component interface to match actual implementation
+- **LiquidProgressBar Stories** - Fixed progress prop names and removed unsupported props
+- **LiquidSidebar Stories** - Updated component references
+- **LiquidStats Stories** - Fixed component imports
+- **LiquidTooltip Stories** - Updated component references
+- **Showcase Stories** - Fixed all component references and prop names
+- **FormComponents Stories** - Updated progress bar prop names
+- **DisplayComponents Stories** - Fixed component imports
+- **OverlayComponents Stories** - Fixed modal and sidebar component usage
+
+#### 🎯 Technical Improvements
+- **TypeScript Compatibility** - All stories now use correct component interfaces
+- **Build System** - Fixed import resolution issues
+- **Development Experience** - Storybook now runs without import errors
+- **Component Consistency** - All stories match actual component implementations
+
+## [1.0.1] - 2024-12-19
+
 ## [1.0.1] - 2024-12-19
 
 ### ✨ Added - Advanced Interactive Controls
