@@ -1,6 +1,6 @@
 {
   "name": "advanced-liquid-glass-ui",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "type": "module",
   "description": "The most advanced glass morphism React UI library with liquid distortion effects, chromatic aberration, and real-time interactive controls",
   "main": "dist/index.js",
