@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import GlassButton from '../src/components/GlassButton';
+import LiquidButton from '../src/components/LiquidButton';
 
-const meta: Meta<typeof GlassButton> = {
-  title: 'Test/GlassButton',
-  component: GlassButton,
+const meta: Meta<typeof LiquidButton> = {
+  title: 'Test/LiquidButton',
+  component: LiquidButton,
   parameters: {
     layout: 'centered',
   },

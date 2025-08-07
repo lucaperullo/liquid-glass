@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import GlassModal from '../src/components/GlassModal';
-import GlassSidebar from '../src/components/GlassSidebar';
-import GlassButton from '../src/components/GlassButton';
-import GlassInput from '../src/components/GlassInput';
-import GlassCard from '../src/components/GlassCard';
+import LiquidModal from '../src/components/LiquidModal';
+import LiquidSidebar from '../src/components/LiquidSidebar';
+import LiquidButton from '../src/components/LiquidButton';
+import LiquidInput from '../src/components/LiquidInput';
+import LiquidCard from '../src/components/LiquidCard';
 
 const meta: Meta = {
   title: 'Components/Overlay Components',
@@ -22,7 +22,7 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// GlassModal Stories
+// LiquidModal Stories
 export const ModalExamples: Story = {
   render: () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -31,16 +31,16 @@ export const ModalExamples: Story = {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-900 to-blue-900 p-8">
         <div className="max-w-2xl mx-auto space-y-6">
-          <GlassCard className="p-6">
+          <LiquidCard className="p-6">
             <h3 className="text-xl font-bold text-white mb-4">Modal Examples</h3>
             
             <div className="space-y-4">
               <div className="flex gap-4">
-                <GlassButton onClick={() => setIsOpen(true)}>
+                <LiquidButton onClick={() => setIsOpen(true)}>
                   Open Modal
-                </GlassButton>
+                </LiquidButton>
                 
-                <GlassButton 
+                <LiquidButton 
                   variant="subtle" 
                   onClick={() => {
                     setModalSize('sm');
@@ -48,9 +48,9 @@ export const ModalExamples: Story = {
                   }}
                 >
                   Small Modal
-                </GlassButton>
+                </LiquidButton>
                 
-                <GlassButton 
+                <LiquidButton 
                   variant="intense" 
                   onClick={() => {
                     setModalSize('lg');
@@ -58,14 +58,14 @@ export const ModalExamples: Story = {
                   }}
                 >
                   Large Modal
-                </GlassButton>
+                </LiquidButton>
               </div>
             </div>
-          </GlassCard>
+          </LiquidCard>
           
-          <GlassModal
-            isOpen={isOpen}
-            onClose={() => setIsOpen(false)}
+          <LiquidModal
+            
+            
             size={modalSize}
           >
             <h2 className="text-2xl font-bold text-white mb-4">
@@ -76,17 +76,17 @@ export const ModalExamples: Story = {
               Experience the advanced chromatic aberration and liquid distortion.
             </p>
             <div className="flex justify-end space-x-3">
-              <GlassButton 
+              <LiquidButton 
                 variant="subtle" 
                 onClick={() => setIsOpen(false)}
               >
                 Cancel
-              </GlassButton>
-              <GlassButton onClick={action('modal-confirm')}>
+              </LiquidButton>
+              <LiquidButton onClick={action('modal-confirm')}>
                 Confirm
-              </GlassButton>
+              </LiquidButton>
             </div>
-          </GlassModal>
+          </LiquidModal>
         </div>
       </div>
     );
@@ -105,16 +105,16 @@ export const ModalWithForm: Story = {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-900 to-blue-900 p-8">
         <div className="max-w-2xl mx-auto">
-          <GlassCard className="p-6">
+          <LiquidCard className="p-6">
             <h3 className="text-xl font-bold text-white mb-4">Modal with Form</h3>
-            <GlassButton onClick={() => setIsOpen(true)}>
+            <LiquidButton onClick={() => setIsOpen(true)}>
               Contact Us
-            </GlassButton>
-          </GlassCard>
+            </LiquidButton>
+          </LiquidCard>
           
-          <GlassModal
-            isOpen={isOpen}
-            onClose={() => setIsOpen(false)}
+          <LiquidModal
+            
+            
             size="md"
           >
             <h2 className="text-2xl font-bold text-white mb-4">
@@ -124,7 +124,7 @@ export const ModalWithForm: Story = {
             <div className="space-y-4 mb-6">
               <div>
                 <label className="block text-white/80 text-sm mb-2">Name</label>
-                <GlassInput
+                <LiquidInput
                   type="text"
                   placeholder="Enter your name"
                   value={formData.name}
@@ -134,7 +134,7 @@ export const ModalWithForm: Story = {
               
               <div>
                 <label className="block text-white/80 text-sm mb-2">Email</label>
-                <GlassInput
+                <LiquidInput
                   type="email"
                   placeholder="Enter your email"
                   value={formData.email}
@@ -155,17 +155,17 @@ export const ModalWithForm: Story = {
             </div>
             
             <div className="flex justify-end space-x-3">
-              <GlassButton 
+              <LiquidButton 
                 variant="subtle" 
                 onClick={() => setIsOpen(false)}
               >
                 Cancel
-              </GlassButton>
-              <GlassButton onClick={action('form-submit')}>
+              </LiquidButton>
+              <LiquidButton onClick={action('form-submit')}>
                 Send Message
-              </GlassButton>
+              </LiquidButton>
             </div>
-          </GlassModal>
+          </LiquidModal>
         </div>
       </div>
     );
@@ -179,32 +179,32 @@ export const ModalVariants: Story = {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-900 to-blue-900 p-8">
         <div className="max-w-2xl mx-auto space-y-6">
-          <GlassCard className="p-6">
+          <LiquidCard className="p-6">
             <h3 className="text-xl font-bold text-white mb-4">Modal Variants</h3>
             
             <div className="grid grid-cols-2 gap-4">
-              <GlassButton onClick={() => setCurrentModal('info')}>
+              <LiquidButton onClick={() => setCurrentModal('info')}>
                 Info Modal
-              </GlassButton>
+              </LiquidButton>
               
-              <GlassButton onClick={() => setCurrentModal('warning')}>
+              <LiquidButton onClick={() => setCurrentModal('warning')}>
                 Warning Modal
-              </GlassButton>
+              </LiquidButton>
               
-              <GlassButton onClick={() => setCurrentModal('success')}>
+              <LiquidButton onClick={() => setCurrentModal('success')}>
                 Success Modal
-              </GlassButton>
+              </LiquidButton>
               
-              <GlassButton onClick={() => setCurrentModal('error')}>
+              <LiquidButton onClick={() => setCurrentModal('error')}>
                 Error Modal
-              </GlassButton>
+              </LiquidButton>
             </div>
-          </GlassCard>
+          </LiquidCard>
           
           {/* Info Modal */}
-          <GlassModal
-            isOpen={currentModal === 'info'}
-            onClose={() => setCurrentModal(null)}
+          <LiquidModal
+            
+            
             size="md"
           >
             <div className="text-center">
@@ -215,16 +215,16 @@ export const ModalVariants: Story = {
               <p className="text-white/80 mb-6">
                 This is an informational modal with important details.
               </p>
-              <GlassButton onClick={() => setCurrentModal(null)}>
+              <LiquidButton onClick={() => setCurrentModal(null)}>
                 Got it
-              </GlassButton>
+              </LiquidButton>
             </div>
-          </GlassModal>
+          </LiquidModal>
           
           {/* Warning Modal */}
-          <GlassModal
-            isOpen={currentModal === 'warning'}
-            onClose={() => setCurrentModal(null)}
+          <LiquidModal
+            
+            
             size="md"
           >
             <div className="text-center">
@@ -236,23 +236,23 @@ export const ModalVariants: Story = {
                 This action cannot be undone. Are you sure you want to proceed?
               </p>
               <div className="flex justify-center space-x-3">
-                <GlassButton 
+                <LiquidButton 
                   variant="subtle" 
                   onClick={() => setCurrentModal(null)}
                 >
                   Cancel
-                </GlassButton>
-                <GlassButton onClick={() => setCurrentModal(null)}>
+                </LiquidButton>
+                <LiquidButton onClick={() => setCurrentModal(null)}>
                   Proceed
-                </GlassButton>
+                </LiquidButton>
               </div>
             </div>
-          </GlassModal>
+          </LiquidModal>
           
           {/* Success Modal */}
-          <GlassModal
-            isOpen={currentModal === 'success'}
-            onClose={() => setCurrentModal(null)}
+          <LiquidModal
+            
+            
             size="md"
           >
             <div className="text-center">
@@ -263,16 +263,16 @@ export const ModalVariants: Story = {
               <p className="text-white/80 mb-6">
                 Your action has been completed successfully.
               </p>
-              <GlassButton onClick={() => setCurrentModal(null)}>
+              <LiquidButton onClick={() => setCurrentModal(null)}>
                 Continue
-              </GlassButton>
+              </LiquidButton>
             </div>
-          </GlassModal>
+          </LiquidModal>
           
           {/* Error Modal */}
-          <GlassModal
-            isOpen={currentModal === 'error'}
-            onClose={() => setCurrentModal(null)}
+          <LiquidModal
+            
+            
             size="md"
           >
             <div className="text-center">
@@ -284,25 +284,25 @@ export const ModalVariants: Story = {
                 Something went wrong. Please try again.
               </p>
               <div className="flex justify-center space-x-3">
-                <GlassButton 
+                <LiquidButton 
                   variant="subtle" 
                   onClick={() => setCurrentModal(null)}
                 >
                   Close
-                </GlassButton>
-                <GlassButton onClick={() => setCurrentModal(null)}>
+                </LiquidButton>
+                <LiquidButton onClick={() => setCurrentModal(null)}>
                   Retry
-                </GlassButton>
+                </LiquidButton>
               </div>
             </div>
-          </GlassModal>
+          </LiquidModal>
         </div>
       </div>
     );
   },
 };
 
-// GlassSidebar Stories
+// LiquidSidebar Stories
 export const SidebarExamples: Story = {
   render: () => {
     return (
@@ -312,7 +312,7 @@ export const SidebarExamples: Story = {
           <p className="text-white/80">The sidebar is positioned on the left side of the screen.</p>
         </div>
         
-        <GlassSidebar className="w-80">
+        <LiquidSidebar className="w-80">
           <div className="p-6">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold text-white">Menu</h3>
@@ -349,7 +349,7 @@ export const SidebarExamples: Story = {
               </div>
             </div>
           </div>
-        </GlassSidebar>
+        </LiquidSidebar>
       </div>
     );
   },
@@ -366,7 +366,7 @@ export const SidebarWithContent: Story = {
           <p className="text-white/80">Interactive sidebar with navigation sections.</p>
         </div>
         
-        <GlassSidebar className="w-96">
+        <LiquidSidebar className="w-96">
           <div className="p-6">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold text-white">ALG UI</h3>
@@ -443,7 +443,7 @@ export const SidebarWithContent: Story = {
               </div>
             </div>
           </div>
-        </GlassSidebar>
+        </LiquidSidebar>
       </div>
     );
   },

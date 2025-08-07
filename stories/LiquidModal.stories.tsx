@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import GlassModal from '../src/components/GlassModal';
-import GlassButton from '../src/components/GlassButton';
+import LiquidModal from '../src/components/LiquidModal';
+import LiquidButton from '../src/components/LiquidButton';
 
 // Background images for testing
 const backgrounds = [
@@ -39,7 +39,7 @@ const BackgroundSelector: React.FC<{
   </div>
 );
 
-const GlassModalDemo: React.FC = () => {
+const LiquidModalDemo: React.FC = () => {
   const [currentBg, setCurrentBg] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
   const [variant, setVariant] = useState<'default' | 'subtle' | 'intense' | 'minimal'>('default');
@@ -110,13 +110,13 @@ const GlassModalDemo: React.FC = () => {
           <h1 className="text-4xl font-bold text-white mb-8">Glass Modal Demo</h1>
           
           <div className="space-y-4">
-            <GlassButton 
+            <LiquidButton 
               variant="default" 
               size="lg"
               onClick={() => setModalOpen(true)}
             >
               Open Modal
-            </GlassButton>
+            </LiquidButton>
             
             <p className="text-white/80 max-w-md mx-auto">
               Click the button above to open a beautiful glass modal with advanced morphism effects.
@@ -127,13 +127,11 @@ const GlassModalDemo: React.FC = () => {
       </div>
 
       {/* Modal */}
-      <GlassModal
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        variant={variant}
-        size={size}
-        blur={blur}
-      >
+      {modalOpen && (
+        <LiquidModal
+          variant={variant}
+          size={size}
+        >
         <div className="text-white">
           <h2 className="text-2xl font-bold mb-4">
             Welcome to ALG UI
@@ -163,25 +161,26 @@ const GlassModalDemo: React.FC = () => {
           </ul>
           
           <div className="flex justify-end space-x-3">
-            <GlassButton 
+            <LiquidButton 
               variant="subtle" 
               onClick={() => setModalOpen(false)}
             >
               Close
-            </GlassButton>
-            <GlassButton onClick={() => alert('Action clicked!')}>
+            </LiquidButton>
+            <LiquidButton onClick={() => alert('Action clicked!')}>
               Get Started
-            </GlassButton>
+            </LiquidButton>
           </div>
         </div>
-      </GlassModal>
+        </LiquidModal>
+      )}
     </div>
   );
 };
 
 const meta: Meta = {
-  title: 'Components/GlassModal',
-  component: GlassModal,
+  title: 'Components/LiquidModal',
+  component: LiquidModal,
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -209,7 +208,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const InteractiveDemo: Story = {
-  render: () => <GlassModalDemo />,
+  render: () => <LiquidModalDemo />,
 };
 
 export const Default: Story = {
@@ -219,28 +218,28 @@ export const Default: Story = {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center p-8">
         <div className="text-center space-y-6">
-          <GlassButton onClick={() => setIsOpen(true)}>
+          <LiquidButton onClick={() => setIsOpen(true)}>
             Open Modal
-          </GlassButton>
+          </LiquidButton>
           
-          <GlassModal
-            isOpen={isOpen}
-            onClose={() => setIsOpen(false)}
-            size="md"
-          >
-            <div className="text-white">
-              <h2 className="text-2xl font-bold mb-4">Default Modal</h2>
-              <p className="text-white/80 mb-6">
-                This is the default modal variant with balanced glass morphism effects.
-              </p>
-              <div className="flex justify-end space-x-3">
-                <GlassButton variant="subtle" onClick={() => setIsOpen(false)}>
-                  Close
-                </GlassButton>
-                <GlassButton>Action</GlassButton>
+          {isOpen && (
+            <LiquidModal
+              size="md"
+            >
+              <div className="text-white">
+                <h2 className="text-2xl font-bold mb-4">Default Modal</h2>
+                <p className="text-white/80 mb-6">
+                  This is the default modal variant with balanced glass morphism effects.
+                </p>
+                <div className="flex justify-end space-x-3">
+                  <LiquidButton variant="subtle" onClick={() => setIsOpen(false)}>
+                    Close
+                  </LiquidButton>
+                  <LiquidButton>Action</LiquidButton>
+                </div>
               </div>
-            </div>
-          </GlassModal>
+            </LiquidModal>
+          )}
         </div>
       </div>
     );
@@ -257,7 +256,7 @@ export const Sizes: Story = {
         <div className="text-center space-y-6">
           <div className="flex flex-wrap gap-2 justify-center">
             {(['sm', 'md', 'lg', 'xl', '2xl'] as const).map(size => (
-              <GlassButton 
+              <LiquidButton 
                 key={size}
                 size="sm"
                 variant={currentSize === size ? 'intense' : 'subtle'}
@@ -267,28 +266,28 @@ export const Sizes: Story = {
                 }}
               >
                 {size.toUpperCase()}
-              </GlassButton>
+              </LiquidButton>
             ))}
           </div>
           
-          <GlassModal
-            isOpen={isOpen}
-            onClose={() => setIsOpen(false)}
-            size={currentSize}
-          >
-            <div className="text-white">
-              <h2 className="text-2xl font-bold mb-4">{currentSize.toUpperCase()} Modal</h2>
-              <p className="text-white/80 mb-6">
-                This modal demonstrates the {currentSize} size variant.
-              </p>
-              <div className="flex justify-end space-x-3">
-                <GlassButton variant="subtle" onClick={() => setIsOpen(false)}>
-                  Close
-                </GlassButton>
-                <GlassButton>Action</GlassButton>
+          {isOpen && (
+            <LiquidModal
+              size={currentSize}
+            >
+              <div className="text-white">
+                <h2 className="text-2xl font-bold mb-4">{currentSize.toUpperCase()} Modal</h2>
+                <p className="text-white/80 mb-6">
+                  This modal demonstrates the {currentSize} size variant.
+                </p>
+                <div className="flex justify-end space-x-3">
+                  <LiquidButton variant="subtle" onClick={() => setIsOpen(false)}>
+                    Close
+                  </LiquidButton>
+                  <LiquidButton>Action</LiquidButton>
+                </div>
               </div>
-            </div>
-          </GlassModal>
+            </LiquidModal>
+          )}
         </div>
       </div>
     );
@@ -305,7 +304,7 @@ export const Variants: Story = {
         <div className="text-center space-y-6">
           <div className="flex flex-wrap gap-2 justify-center">
             {(['default', 'subtle', 'intense', 'minimal'] as const).map(variant => (
-              <GlassButton 
+              <LiquidButton 
                 key={variant}
                 size="sm"
                 variant={currentVariant === variant ? 'intense' : 'subtle'}
@@ -315,29 +314,29 @@ export const Variants: Story = {
                 }}
               >
                 {variant.charAt(0).toUpperCase() + variant.slice(1)}
-              </GlassButton>
+              </LiquidButton>
             ))}
           </div>
           
-          <GlassModal
-            isOpen={isOpen}
-            onClose={() => setIsOpen(false)}
-            variant={currentVariant}
-            size="md"
-          >
-            <div className="text-white">
-              <h2 className="text-2xl font-bold mb-4">{currentVariant.charAt(0).toUpperCase() + currentVariant.slice(1)} Modal</h2>
-              <p className="text-white/80 mb-6">
-                This modal demonstrates the {currentVariant} variant with its unique glass morphism effects.
-              </p>
-              <div className="flex justify-end space-x-3">
-                <GlassButton variant="subtle" onClick={() => setIsOpen(false)}>
-                  Close
-                </GlassButton>
-                <GlassButton>Action</GlassButton>
+          {isOpen && (
+            <LiquidModal
+              variant={currentVariant}
+              size="md"
+            >
+              <div className="text-white">
+                <h2 className="text-2xl font-bold mb-4">{currentVariant.charAt(0).toUpperCase() + currentVariant.slice(1)} Modal</h2>
+                <p className="text-white/80 mb-6">
+                  This modal demonstrates the {currentVariant} variant with its unique glass morphism effects.
+                </p>
+                <div className="flex justify-end space-x-3">
+                  <LiquidButton variant="subtle" onClick={() => setIsOpen(false)}>
+                    Close
+                  </LiquidButton>
+                  <LiquidButton>Action</LiquidButton>
+                </div>
               </div>
-            </div>
-          </GlassModal>
+            </LiquidModal>
+          )}
         </div>
       </div>
     );

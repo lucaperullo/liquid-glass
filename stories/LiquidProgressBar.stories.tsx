@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import GlassProgressBar from '../src/components/GlassProgressBar';
+import LiquidProgressBar from '../src/components/LiquidProgressBar';
 
 // Background images for testing
 const backgrounds = [
@@ -38,7 +38,7 @@ const BackgroundSelector: React.FC<{
   </div>
 );
 
-const GlassProgressBarDemo: React.FC = () => {
+const LiquidProgressBarDemo: React.FC = () => {
   const [currentBg, setCurrentBg] = useState(0);
   const [variant, setVariant] = useState<'default' | 'subtle' | 'intense' | 'minimal'>('default');
   const [showLabel, setShowLabel] = useState(true);
@@ -131,17 +131,15 @@ const GlassProgressBarDemo: React.FC = () => {
               <input 
                 type="range" 
                 min="0" 
-                max="100" 
+                
                 value={progress1} 
                 onChange={(e) => setProgress1(Number(e.target.value))}
                 className="w-full"
               />
-              <GlassProgressBar 
-                value={progress1} 
-                max={100}
+              <LiquidProgressBar 
+                progress={progress1} 
                 showLabel={showLabel}
                 variant={variant}
-                blur={blur}
               />
             </div>
 
@@ -150,17 +148,15 @@ const GlassProgressBarDemo: React.FC = () => {
               <input 
                 type="range" 
                 min="0" 
-                max="100" 
+                
                 value={progress2} 
                 onChange={(e) => setProgress2(Number(e.target.value))}
                 className="w-full"
               />
-              <GlassProgressBar 
-                value={progress2} 
-                max={100}
+              <LiquidProgressBar 
+                progress={progress2} 
                 showLabel={showLabel}
                 variant={variant}
-                blur={blur}
               />
             </div>
 
@@ -169,17 +165,17 @@ const GlassProgressBarDemo: React.FC = () => {
               <input 
                 type="range" 
                 min="0" 
-                max="100" 
+                
                 value={progress3} 
                 onChange={(e) => setProgress3(Number(e.target.value))}
                 className="w-full"
               />
-              <GlassProgressBar 
-                value={progress3} 
-                max={100}
+              <LiquidProgressBar 
+                progress={progress3} 
+               
                 showLabel={showLabel}
                 variant={variant}
-                blur={blur}
+               
               />
             </div>
           </div>
@@ -187,12 +183,12 @@ const GlassProgressBarDemo: React.FC = () => {
           {/* Auto Progress */}
           <div className="space-y-2">
             <label className="text-white/80 text-sm font-medium">Auto Progress: {autoProgress}%</label>
-            <GlassProgressBar 
-              value={autoProgress} 
-              max={100}
+            <LiquidProgressBar 
+              progress={autoProgress} 
+             
               showLabel={showLabel}
               variant={variant}
-              blur={blur}
+             
             />
           </div>
 
@@ -202,19 +198,19 @@ const GlassProgressBarDemo: React.FC = () => {
             <div className="space-y-4">
               <div className="space-y-2">
                 <label className="text-white/80 text-sm">Default</label>
-                <GlassProgressBar value={75} showLabel={false} variant="default" />
+                <LiquidProgressBar progress={75} showLabel={false} variant="default" />
               </div>
               <div className="space-y-2">
                 <label className="text-white/80 text-sm">Subtle</label>
-                <GlassProgressBar value={75} showLabel={false} variant="subtle" />
+                <LiquidProgressBar progress={75} showLabel={false} variant="subtle" />
               </div>
               <div className="space-y-2">
                 <label className="text-white/80 text-sm">Intense</label>
-                <GlassProgressBar value={75} showLabel={false} variant="intense" />
+                <LiquidProgressBar progress={75} showLabel={false} variant="intense" />
               </div>
               <div className="space-y-2">
                 <label className="text-white/80 text-sm">Minimal</label>
-                <GlassProgressBar value={75} showLabel={false} variant="minimal" />
+                <LiquidProgressBar progress={75} showLabel={false} variant="minimal" />
               </div>
             </div>
           </div>
@@ -225,8 +221,8 @@ const GlassProgressBarDemo: React.FC = () => {
 };
 
 const meta: Meta = {
-  title: 'Components/GlassProgressBar',
-  component: GlassProgressBar,
+  title: 'Components/LiquidProgressBar',
+  component: LiquidProgressBar,
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -253,7 +249,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const InteractiveDemo: Story = {
-  render: () => <GlassProgressBarDemo />,
+  render: () => <LiquidProgressBarDemo />,
 };
 
 export const Default: Story = {
@@ -274,16 +270,16 @@ export const Default: Story = {
               <input 
                 type="range" 
                 min="0" 
-                max="100" 
+                
                 value={progress} 
                 onChange={(e) => setProgress(Number(e.target.value))}
                 className="w-full"
               />
             </div>
             
-            <GlassProgressBar 
-              value={progress} 
-              max={100}
+            <LiquidProgressBar 
+              progress={progress} 
+             
               showLabel={true}
             />
           </div>
@@ -306,22 +302,22 @@ export const Variants: Story = {
           <div className="space-y-6">
             <div className="space-y-2">
               <label className="text-white/80 text-sm font-medium">Default</label>
-              <GlassProgressBar value={75} showLabel={false} variant="default" />
+              <LiquidProgressBar progress={75} showLabel={false} variant="default" />
             </div>
             
             <div className="space-y-2">
               <label className="text-white/80 text-sm font-medium">Subtle</label>
-              <GlassProgressBar value={75} showLabel={false} variant="subtle" />
+              <LiquidProgressBar progress={75} showLabel={false} variant="subtle" />
             </div>
             
             <div className="space-y-2">
               <label className="text-white/80 text-sm font-medium">Intense</label>
-              <GlassProgressBar value={75} showLabel={false} variant="intense" />
+              <LiquidProgressBar progress={75} showLabel={false} variant="intense" />
             </div>
             
             <div className="space-y-2">
               <label className="text-white/80 text-sm font-medium">Minimal</label>
-              <GlassProgressBar value={75} showLabel={false} variant="minimal" />
+              <LiquidProgressBar progress={75} showLabel={false} variant="minimal" />
             </div>
           </div>
         </div>
@@ -343,22 +339,22 @@ export const ProgressLevels: Story = {
           <div className="space-y-6">
             <div className="space-y-2">
               <label className="text-white/80 text-sm font-medium">Low Progress</label>
-              <GlassProgressBar value={25} showLabel={true} />
+              <LiquidProgressBar progress={25} showLabel={true} />
             </div>
             
             <div className="space-y-2">
               <label className="text-white/80 text-sm font-medium">Medium Progress</label>
-              <GlassProgressBar value={50} showLabel={true} />
+              <LiquidProgressBar progress={50} showLabel={true} />
             </div>
             
             <div className="space-y-2">
               <label className="text-white/80 text-sm font-medium">High Progress</label>
-              <GlassProgressBar value={75} showLabel={true} />
+              <LiquidProgressBar progress={75} showLabel={true} />
             </div>
             
             <div className="space-y-2">
               <label className="text-white/80 text-sm font-medium">Complete</label>
-              <GlassProgressBar value={100} showLabel={true} />
+              <LiquidProgressBar progress={100} showLabel={true} />
             </div>
           </div>
         </div>
@@ -391,9 +387,9 @@ export const AutoProgress: Story = {
           </div>
           
           <div className="space-y-4">
-            <GlassProgressBar 
-              value={progress} 
-              max={100}
+            <LiquidProgressBar 
+              progress={progress} 
+             
               showLabel={true}
             />
             

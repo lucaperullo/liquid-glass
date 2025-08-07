@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import GlassInput from '../src/components/GlassInput';
-import GlassProgressBar from '../src/components/GlassProgressBar';
-import GlassButton from '../src/components/GlassButton';
-import GlassCard from '../src/components/GlassCard';
+import LiquidInput from '../src/components/LiquidInput';
+import LiquidProgressBar from '../src/components/LiquidProgressBar';
+import LiquidButton from '../src/components/LiquidButton';
+import LiquidCard from '../src/components/LiquidCard';
 
 const meta: Meta = {
   title: 'Components/Form Components',
@@ -12,7 +12,7 @@ const meta: Meta = {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Form components with glass morphism effects including inputs, progress bars, and interactive elements.',
+        component: 'Form components with Liquid morphism effects including inputs, progress bars, and interactive elements.',
       },
     },
   },
@@ -21,7 +21,7 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// GlassInput Stories
+// LiquidInput Stories
 export const InputExamples: Story = {
   render: () => {
     const [email, setEmail] = useState('');
@@ -30,13 +30,13 @@ export const InputExamples: Story = {
 
     return (
       <div className="space-y-6 max-w-md">
-        <GlassCard className="p-6">
+        <LiquidCard className="p-6">
           <h3 className="text-xl font-bold text-white mb-4">Input Fields</h3>
           
           <div className="space-y-4">
             <div>
               <label className="block text-white/80 text-sm mb-2">Email</label>
-              <GlassInput
+              <LiquidInput
                 type="email"
                 placeholder="Enter your email"
                 value={email}
@@ -46,7 +46,7 @@ export const InputExamples: Story = {
             
             <div>
               <label className="block text-white/80 text-sm mb-2">Password</label>
-              <GlassInput
+              <LiquidInput
                 type="password"
                 placeholder="Enter your password"
                 value={password}
@@ -56,7 +56,7 @@ export const InputExamples: Story = {
             
             <div>
               <label className="block text-white/80 text-sm mb-2">Search</label>
-              <GlassInput
+              <LiquidInput
                 type="text"
                 placeholder="Search components..."
                 value={search}
@@ -64,7 +64,7 @@ export const InputExamples: Story = {
               />
             </div>
           </div>
-        </GlassCard>
+        </LiquidCard>
       </div>
     );
   },
@@ -73,36 +73,36 @@ export const InputExamples: Story = {
 export const InputVariants: Story = {
   render: () => (
     <div className="space-y-6 max-w-md">
-      <GlassCard className="p-6">
+      <LiquidCard className="p-6">
         <h3 className="text-xl font-bold text-white mb-4">Input Variants</h3>
         
         <div className="space-y-4">
           <div>
             <label className="block text-white/80 text-sm mb-2">Default</label>
-            <GlassInput placeholder="Default input" />
+            <LiquidInput placeholder="Default input" />
           </div>
           
           <div>
             <label className="block text-white/80 text-sm mb-2">With Value</label>
-            <GlassInput value="example@email.com" />
+            <LiquidInput value="example@email.com" />
           </div>
           
           <div>
             <label className="block text-white/80 text-sm mb-2">Disabled</label>
-            <GlassInput value="Disabled input" disabled />
+            <LiquidInput value="Disabled input" disabled />
           </div>
           
           <div>
             <label className="block text-white/80 text-sm mb-2">With Icon</label>
             <div className="relative">
-              <GlassInput placeholder="Search..." />
+              <LiquidInput placeholder="Search..." />
               <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-white/60">
                 🔍
               </span>
             </div>
           </div>
         </div>
-      </GlassCard>
+      </LiquidCard>
     </div>
   ),
 };
@@ -126,7 +126,7 @@ export const ProgressExamples: Story = {
 
     return (
       <div className="space-y-6 max-w-md">
-        <GlassCard className="p-6">
+        <LiquidCard className="p-6">
           <h3 className="text-xl font-bold text-white mb-4">Progress Bars</h3>
           
           <div className="space-y-6">
@@ -135,20 +135,20 @@ export const ProgressExamples: Story = {
                 <span>Static Progress</span>
                 <span>{progress}%</span>
               </div>
-              <GlassProgressBar value={progress} />
+              <LiquidProgressBar progress={progress} />
               <div className="flex gap-2 mt-2">
-                <GlassButton 
+                <LiquidButton 
                   size="sm" 
                   onClick={() => setProgress(Math.max(0, progress - 25))}
                 >
                   -25%
-                </GlassButton>
-                <GlassButton 
+                </LiquidButton>
+                <LiquidButton 
                   size="sm" 
                   onClick={() => setProgress(Math.min(100, progress + 25))}
                 >
                   +25%
-                </GlassButton>
+                </LiquidButton>
               </div>
             </div>
             
@@ -157,17 +157,17 @@ export const ProgressExamples: Story = {
                 <span>Animated Progress</span>
                 <span>{animatedProgress}%</span>
               </div>
-              <GlassProgressBar value={animatedProgress} />
+              <LiquidProgressBar progress={animatedProgress} />
             </div>
             
             <div>
               <div className="flex justify-between text-white/80 text-sm mb-2">
                 <span>Without Label</span>
               </div>
-              <GlassProgressBar value={75} showLabel={false} />
+              <LiquidProgressBar progress={75} showLabel={false} />
             </div>
           </div>
-        </GlassCard>
+        </LiquidCard>
       </div>
     );
   },
@@ -176,31 +176,31 @@ export const ProgressExamples: Story = {
 export const ProgressVariants: Story = {
   render: () => (
     <div className="space-y-6 max-w-md">
-      <GlassCard className="p-6">
+      <LiquidCard className="p-6">
         <h3 className="text-xl font-bold text-white mb-4">Progress Variants</h3>
         
         <div className="space-y-4">
           <div>
             <span className="block text-white/80 text-sm mb-2">Default (50%)</span>
-            <GlassProgressBar value={50} />
+            <LiquidProgressBar progress={50} />
           </div>
           
           <div>
             <span className="block text-white/80 text-sm mb-2">Low (25%)</span>
-            <GlassProgressBar value={25} />
+            <LiquidProgressBar progress={25} />
           </div>
           
           <div>
             <span className="block text-white/80 text-sm mb-2">High (75%)</span>
-            <GlassProgressBar value={75} />
+            <LiquidProgressBar progress={75} />
           </div>
           
           <div>
             <span className="block text-white/80 text-sm mb-2">Complete (100%)</span>
-            <GlassProgressBar value={100} />
+            <LiquidProgressBar progress={100} />
           </div>
         </div>
-      </GlassCard>
+      </LiquidCard>
     </div>
   ),
 };
@@ -234,13 +234,13 @@ export const CompleteForm: Story = {
 
     return (
       <div className="space-y-6 max-w-lg">
-        <GlassCard className="p-6">
+        <LiquidCard className="p-6">
           <h3 className="text-xl font-bold text-white mb-4">Registration Form</h3>
           
           <div className="space-y-4">
             <div>
               <label className="block text-white/80 text-sm mb-2">Full Name</label>
-              <GlassInput
+              <LiquidInput
                 type="text"
                 placeholder="Enter your full name"
                 value={formData.name}
@@ -250,7 +250,7 @@ export const CompleteForm: Story = {
             
             <div>
               <label className="block text-white/80 text-sm mb-2">Email Address</label>
-              <GlassInput
+              <LiquidInput
                 type="email"
                 placeholder="Enter your email"
                 value={formData.email}
@@ -260,7 +260,7 @@ export const CompleteForm: Story = {
             
             <div>
               <label className="block text-white/80 text-sm mb-2">Password</label>
-              <GlassInput
+              <LiquidInput
                 type="password"
                 placeholder="Create a password"
                 value={formData.password}
@@ -271,13 +271,13 @@ export const CompleteForm: Story = {
                   <span>Password Strength</span>
                   <span>{passwordStrength}%</span>
                 </div>
-                <GlassProgressBar value={passwordStrength} showLabel={false} />
+                <LiquidProgressBar progress={passwordStrength} showLabel={false} />
               </div>
             </div>
             
             <div>
               <label className="block text-white/80 text-sm mb-2">Confirm Password</label>
-              <GlassInput
+              <LiquidInput
                 type="password"
                 placeholder="Confirm your password"
                 value={formData.confirmPassword}
@@ -286,19 +286,19 @@ export const CompleteForm: Story = {
             </div>
             
             <div className="flex gap-3 pt-4">
-              <GlassButton 
+              <LiquidButton 
                 variant="subtle" 
                 onClick={() => setStep(Math.max(1, step - 1))}
                 disabled={step === 1}
               >
                 Previous
-              </GlassButton>
-              <GlassButton 
+              </LiquidButton>
+              <LiquidButton 
                 onClick={() => setStep(Math.min(3, step + 1))}
                 className="flex-1"
               >
                 {step === 3 ? 'Submit' : 'Next'}
-              </GlassButton>
+              </LiquidButton>
             </div>
             
             <div className="flex justify-center">
@@ -314,7 +314,7 @@ export const CompleteForm: Story = {
               </div>
             </div>
           </div>
-        </GlassCard>
+        </LiquidCard>
       </div>
     );
   },

@@ -1,48 +1,26 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import GlassNavbar from '../src/components/GlassNavbar';
-import GlassButton from '../src/components/GlassButton';
+import LiquidNavbar from '../src/components/LiquidNavbar';
+import LiquidButton from '../src/components/LiquidButton';
 
-const meta: Meta<typeof GlassNavbar> = {
-  title: 'Components/GlassNavbar',
-  component: GlassNavbar,
+const meta: Meta<typeof LiquidNavbar> = {
+  title: 'Components/LiquidNavbar',
+  component: LiquidNavbar,
   parameters: {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Responsive navigation bar with glass morphism effects and mobile menu support.',
+        component: 'Glass morphism navbar component with customizable variants.',
       },
     },
   },
   argTypes: {
-    logo: {
-      control: 'text',
-      description: 'Brand logo or text',
-    },
-    links: {
-      control: 'object',
-      description: 'Navigation links array',
-    },
-    actions: {
-      control: 'object',
-      description: 'Action buttons or elements',
-    },
     variant: {
       control: 'select',
       options: ['default', 'subtle', 'intense', 'minimal'],
       description: 'Visual variant',
     },
-  },
-  args: {
-    logo: 'ALG UI',
-    links: [
-      { label: 'Home', href: '#' },
-      { label: 'Components', href: '#' },
-      { label: 'Documentation', href: '#' },
-      { label: 'Support', href: '#' },
-    ],
-    actions: <GlassButton size="sm">Login</GlassButton>,
   },
 };
 
@@ -58,125 +36,131 @@ export const Default: Story = {
 export const Variants: Story = {
   render: () => (
     <div className="space-y-4">
-      <GlassNavbar
-        logo="ALG UI"
-        variant="default"
-        links={[
-          { label: 'Home', href: '#' },
-          { label: 'Components', href: '#' },
-          { label: 'Docs', href: '#' },
-        ]}
-        actions={<GlassButton size="sm">Login</GlassButton>}
-      />
+      <LiquidNavbar variant="default">
+        <div className="flex items-center justify-between w-full">
+          <div className="text-white font-bold text-xl">ALG UI</div>
+          <div className="flex items-center space-x-4">
+            <a href="#" className="text-white/80 hover:text-white transition-colors">Home</a>
+            <a href="#" className="text-white/80 hover:text-white transition-colors">Components</a>
+            <a href="#" className="text-white/80 hover:text-white transition-colors">Docs</a>
+            <LiquidButton size="sm">Login</LiquidButton>
+          </div>
+        </div>
+      </LiquidNavbar>
       
-      <GlassNavbar
-        logo="ALG UI"
-        variant="subtle"
-        links={[
-          { label: 'Home', href: '#' },
-          { label: 'Components', href: '#' },
-          { label: 'Docs', href: '#' },
-        ]}
-        actions={<GlassButton size="sm" variant="subtle">Login</GlassButton>}
-      />
+      <LiquidNavbar variant="subtle">
+        <div className="flex items-center justify-between w-full">
+          <div className="text-white font-bold text-xl">ALG UI</div>
+          <div className="flex items-center space-x-4">
+            <a href="#" className="text-white/80 hover:text-white transition-colors">Home</a>
+            <a href="#" className="text-white/80 hover:text-white transition-colors">Components</a>
+            <a href="#" className="text-white/80 hover:text-white transition-colors">Docs</a>
+            <LiquidButton size="sm" variant="subtle">Login</LiquidButton>
+          </div>
+        </div>
+      </LiquidNavbar>
       
-      <GlassNavbar
-        logo="ALG UI"
-        variant="intense"
-        links={[
-          { label: 'Home', href: '#' },
-          { label: 'Components', href: '#' },
-          { label: 'Docs', href: '#' },
-        ]}
-        actions={<GlassButton size="sm" variant="intense">Login</GlassButton>}
-      />
+      <LiquidNavbar variant="intense">
+        <div className="flex items-center justify-between w-full">
+          <div className="text-white font-bold text-xl">ALG UI</div>
+          <div className="flex items-center space-x-4">
+            <a href="#" className="text-white/80 hover:text-white transition-colors">Home</a>
+            <a href="#" className="text-white/80 hover:text-white transition-colors">Components</a>
+            <a href="#" className="text-white/80 hover:text-white transition-colors">Docs</a>
+            <LiquidButton size="sm" variant="intense">Login</LiquidButton>
+          </div>
+        </div>
+      </LiquidNavbar>
       
-      <GlassNavbar
-        logo="ALG UI"
-        variant="minimal"
-        links={[
-          { label: 'Home', href: '#' },
-          { label: 'Components', href: '#' },
-          { label: 'Docs', href: '#' },
-        ]}
-        actions={<GlassButton size="sm" variant="minimal">Login</GlassButton>}
-      />
+      <LiquidNavbar variant="minimal">
+        <div className="flex items-center justify-between w-full">
+          <div className="text-white font-bold text-xl">ALG UI</div>
+          <div className="flex items-center space-x-4">
+            <a href="#" className="text-white/80 hover:text-white transition-colors">Home</a>
+            <a href="#" className="text-white/80 hover:text-white transition-colors">Components</a>
+            <a href="#" className="text-white/80 hover:text-white transition-colors">Docs</a>
+            <LiquidButton size="sm" variant="minimal">Login</LiquidButton>
+          </div>
+        </div>
+      </LiquidNavbar>
     </div>
   ),
 };
 
 export const WithMultipleActions: Story = {
   render: () => (
-    <GlassNavbar
-      logo="ALG UI"
-      links={[
-        { label: 'Home', href: '#' },
-        { label: 'Components', href: '#' },
-        { label: 'Documentation', href: '#' },
-        { label: 'Support', href: '#' },
-      ]}
-      actions={
-        <div className="flex items-center gap-3">
-          <GlassButton size="sm" variant="subtle">
-            Sign Up
-          </GlassButton>
-          <GlassButton size="sm">
-            Login
-          </GlassButton>
+    <LiquidNavbar>
+      <div className="flex items-center justify-between w-full">
+        <div className="text-white font-bold text-xl">ALG UI</div>
+        <div className="flex items-center space-x-4">
+          <a href="#" className="text-white/80 hover:text-white transition-colors">Home</a>
+          <a href="#" className="text-white/80 hover:text-white transition-colors">Components</a>
+          <a href="#" className="text-white/80 hover:text-white transition-colors">Documentation</a>
+          <a href="#" className="text-white/80 hover:text-white transition-colors">Support</a>
+          <div className="flex items-center gap-3">
+            <LiquidButton size="sm" variant="subtle">
+              Sign Up
+            </LiquidButton>
+            <LiquidButton size="sm">
+              Login
+            </LiquidButton>
+          </div>
         </div>
-      }
-    />
+      </div>
+    </LiquidNavbar>
   ),
 };
 
 export const WithLogo: Story = {
   render: () => (
-    <GlassNavbar
-      logo={
+    <LiquidNavbar>
+      <div className="flex items-center justify-between w-full">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
             <span className="text-white font-bold">A</span>
           </div>
           <span className="text-white font-bold text-lg">ALG UI</span>
         </div>
-      }
-      links={[
-        { label: 'Home', href: '#' },
-        { label: 'Components', href: '#' },
-        { label: 'Documentation', href: '#' },
-      ]}
-      actions={<GlassButton size="sm">Get Started</GlassButton>}
-    />
+        <div className="flex items-center space-x-4">
+          <a href="#" className="text-white/80 hover:text-white transition-colors">Home</a>
+          <a href="#" className="text-white/80 hover:text-white transition-colors">Components</a>
+          <a href="#" className="text-white/80 hover:text-white transition-colors">Documentation</a>
+          <LiquidButton size="sm">Get Started</LiquidButton>
+        </div>
+      </div>
+    </LiquidNavbar>
   ),
 };
 
 export const Minimal: Story = {
   render: () => (
-    <GlassNavbar
-      logo="ALG UI"
-      variant="minimal"
-      links={[
-        { label: 'Home', href: '#' },
-        { label: 'About', href: '#' },
-        { label: 'Contact', href: '#' },
-      ]}
-      actions={<GlassButton size="sm" variant="minimal">Contact</GlassButton>}
-    />
+    <LiquidNavbar variant="minimal">
+      <div className="flex items-center justify-between w-full">
+        <div className="text-white font-bold text-xl">ALG UI</div>
+        <div className="flex items-center space-x-4">
+          <a href="#" className="text-white/80 hover:text-white transition-colors">Home</a>
+          <a href="#" className="text-white/80 hover:text-white transition-colors">About</a>
+          <a href="#" className="text-white/80 hover:text-white transition-colors">Contact</a>
+          <LiquidButton size="sm" variant="minimal">Contact</LiquidButton>
+        </div>
+      </div>
+    </LiquidNavbar>
   ),
 };
 
 export const Intense: Story = {
   render: () => (
-    <GlassNavbar
-      logo="ALG UI"
-      variant="intense"
-      links={[
-        { label: 'Home', href: '#' },
-        { label: 'Features', href: '#' },
-        { label: 'Pricing', href: '#' },
-        { label: 'Support', href: '#' },
-      ]}
-      actions={<GlassButton size="sm" variant="intense">Try Free</GlassButton>}
-    />
+    <LiquidNavbar variant="intense">
+      <div className="flex items-center justify-between w-full">
+        <div className="text-white font-bold text-xl">ALG UI</div>
+        <div className="flex items-center space-x-4">
+          <a href="#" className="text-white/80 hover:text-white transition-colors">Home</a>
+          <a href="#" className="text-white/80 hover:text-white transition-colors">Features</a>
+          <a href="#" className="text-white/80 hover:text-white transition-colors">Pricing</a>
+          <a href="#" className="text-white/80 hover:text-white transition-colors">Support</a>
+          <LiquidButton size="sm" variant="intense">Try Free</LiquidButton>
+        </div>
+      </div>
+    </LiquidNavbar>
   ),
 }; 

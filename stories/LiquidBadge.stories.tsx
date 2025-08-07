@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import GlassBadge from '../src/components/GlassBadge';
+import LiquidBadge from '../src/components/LiquidBadge';
 
 // Background images for testing
 const backgrounds = [
@@ -38,7 +38,7 @@ const BackgroundSelector: React.FC<{
   </div>
 );
 
-const GlassBadgeDemo: React.FC = () => {
+const LiquidBadgeDemo: React.FC = () => {
   const [currentBg, setCurrentBg] = useState(0);
   const [variant, setVariant] = useState<'default' | 'subtle' | 'intense' | 'minimal'>('default');
   const [color, setColor] = useState<'default' | 'success' | 'warning' | 'error' | 'info'>('default');
@@ -115,24 +115,24 @@ const GlassBadgeDemo: React.FC = () => {
           {/* Interactive Badge */}
           <div className="text-center space-y-4">
             <h2 className="text-xl font-bold text-white">Interactive Badge</h2>
-            <GlassBadge 
+            <LiquidBadge 
               variant={variant}
               color={color}
               blur={blur}
             >
               {color.charAt(0).toUpperCase() + color.slice(1)} Badge
-            </GlassBadge>
+            </LiquidBadge>
           </div>
 
           {/* Color Variants */}
           <div className="space-y-6">
             <h2 className="text-xl font-bold text-white text-center">Color Variants</h2>
             <div className="flex flex-wrap gap-4 justify-center">
-              <GlassBadge color="default">Default</GlassBadge>
-              <GlassBadge color="success">Success</GlassBadge>
-              <GlassBadge color="warning">Warning</GlassBadge>
-              <GlassBadge color="error">Error</GlassBadge>
-              <GlassBadge color="info">Info</GlassBadge>
+              <LiquidBadge color="default">Default</LiquidBadge>
+              <LiquidBadge color="success">Success</LiquidBadge>
+              <LiquidBadge color="warning">Warning</LiquidBadge>
+              <LiquidBadge color="error">Error</LiquidBadge>
+              <LiquidBadge color="info">Info</LiquidBadge>
             </div>
           </div>
 
@@ -140,10 +140,10 @@ const GlassBadgeDemo: React.FC = () => {
           <div className="space-y-6">
             <h2 className="text-xl font-bold text-white text-center">Glass Variants</h2>
             <div className="flex flex-wrap gap-4 justify-center">
-              <GlassBadge variant="default" color="success">Default</GlassBadge>
-              <GlassBadge variant="subtle" color="success">Subtle</GlassBadge>
-              <GlassBadge variant="intense" color="success">Intense</GlassBadge>
-              <GlassBadge variant="minimal" color="success">Minimal</GlassBadge>
+              <LiquidBadge variant="default" color="success">Default</LiquidBadge>
+              <LiquidBadge variant="subtle" color="success">Subtle</LiquidBadge>
+              <LiquidBadge variant="intense" color="success">Intense</LiquidBadge>
+              <LiquidBadge variant="minimal" color="success">Minimal</LiquidBadge>
             </div>
           </div>
 
@@ -155,10 +155,10 @@ const GlassBadgeDemo: React.FC = () => {
             <div className="space-y-4">
               <h3 className="text-white font-bold text-center">Status Indicators</h3>
               <div className="flex flex-wrap gap-4 justify-center">
-                <GlassBadge color="success">Online</GlassBadge>
-                <GlassBadge color="warning">Pending</GlassBadge>
-                <GlassBadge color="error">Offline</GlassBadge>
-                <GlassBadge color="info">Maintenance</GlassBadge>
+                <LiquidBadge color="success">Online</LiquidBadge>
+                <LiquidBadge color="warning">Pending</LiquidBadge>
+                <LiquidBadge color="error">Offline</LiquidBadge>
+                <LiquidBadge color="info">Maintenance</LiquidBadge>
               </div>
             </div>
 
@@ -166,11 +166,11 @@ const GlassBadgeDemo: React.FC = () => {
             <div className="space-y-4">
               <h3 className="text-white font-bold text-center">Categories</h3>
               <div className="flex flex-wrap gap-4 justify-center">
-                <GlassBadge color="default">Technology</GlassBadge>
-                <GlassBadge color="success">Design</GlassBadge>
-                <GlassBadge color="warning">Development</GlassBadge>
-                <GlassBadge color="error">Bug</GlassBadge>
-                <GlassBadge color="info">Feature</GlassBadge>
+                <LiquidBadge color="default">Technology</LiquidBadge>
+                <LiquidBadge color="success">Design</LiquidBadge>
+                <LiquidBadge color="warning">Development</LiquidBadge>
+                <LiquidBadge color="error">Bug</LiquidBadge>
+                <LiquidBadge color="info">Feature</LiquidBadge>
               </div>
             </div>
 
@@ -178,10 +178,10 @@ const GlassBadgeDemo: React.FC = () => {
             <div className="space-y-4">
               <h3 className="text-white font-bold text-center">Notifications</h3>
               <div className="flex flex-wrap gap-4 justify-center">
-                <GlassBadge color="error">3</GlassBadge>
-                <GlassBadge color="warning">12</GlassBadge>
-                <GlassBadge color="success">New</GlassBadge>
-                <GlassBadge color="info">Updated</GlassBadge>
+                <LiquidBadge color="error">3</LiquidBadge>
+                <LiquidBadge color="warning">12</LiquidBadge>
+                <LiquidBadge color="success">New</LiquidBadge>
+                <LiquidBadge color="info">Updated</LiquidBadge>
               </div>
             </div>
           </div>
@@ -192,8 +192,8 @@ const GlassBadgeDemo: React.FC = () => {
 };
 
 const meta: Meta = {
-  title: 'Components/GlassBadge',
-  component: GlassBadge,
+  title: 'Components/LiquidBadge',
+  component: LiquidBadge,
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -221,7 +221,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const InteractiveDemo: Story = {
-  render: () => <GlassBadgeDemo />,
+  render: () => <LiquidBadgeDemo />,
 };
 
 export const Default: Story = {
@@ -232,10 +232,10 @@ export const Default: Story = {
         <p className="text-white/80 text-sm">Standard glass morphism badge</p>
         
         <div className="flex flex-wrap gap-4 justify-center">
-          <GlassBadge>Default</GlassBadge>
-          <GlassBadge color="success">Success</GlassBadge>
-          <GlassBadge color="warning">Warning</GlassBadge>
-          <GlassBadge color="error">Error</GlassBadge>
+          <LiquidBadge>Default</LiquidBadge>
+          <LiquidBadge color="success">Success</LiquidBadge>
+          <LiquidBadge color="warning">Warning</LiquidBadge>
+          <LiquidBadge color="error">Error</LiquidBadge>
         </div>
       </div>
     </div>
@@ -250,11 +250,11 @@ export const Colors: Story = {
         <p className="text-white/80 text-sm">Different color variants</p>
         
         <div className="flex flex-wrap gap-4 justify-center">
-          <GlassBadge color="default">Default</GlassBadge>
-          <GlassBadge color="success">Success</GlassBadge>
-          <GlassBadge color="warning">Warning</GlassBadge>
-          <GlassBadge color="error">Error</GlassBadge>
-          <GlassBadge color="info">Info</GlassBadge>
+          <LiquidBadge color="default">Default</LiquidBadge>
+          <LiquidBadge color="success">Success</LiquidBadge>
+          <LiquidBadge color="warning">Warning</LiquidBadge>
+          <LiquidBadge color="error">Error</LiquidBadge>
+          <LiquidBadge color="info">Info</LiquidBadge>
         </div>
       </div>
     </div>
@@ -269,10 +269,10 @@ export const Variants: Story = {
         <p className="text-white/80 text-sm">Different glass morphism variants</p>
         
         <div className="flex flex-wrap gap-4 justify-center">
-          <GlassBadge variant="default" color="success">Default</GlassBadge>
-          <GlassBadge variant="subtle" color="success">Subtle</GlassBadge>
-          <GlassBadge variant="intense" color="success">Intense</GlassBadge>
-          <GlassBadge variant="minimal" color="success">Minimal</GlassBadge>
+          <LiquidBadge variant="default" color="success">Default</LiquidBadge>
+          <LiquidBadge variant="subtle" color="success">Subtle</LiquidBadge>
+          <LiquidBadge variant="intense" color="success">Intense</LiquidBadge>
+          <LiquidBadge variant="minimal" color="success">Minimal</LiquidBadge>
         </div>
       </div>
     </div>
@@ -287,11 +287,11 @@ export const StatusIndicators: Story = {
         <p className="text-white/80 text-sm">Common status badge usage</p>
         
         <div className="flex flex-wrap gap-4 justify-center">
-          <GlassBadge color="success">Online</GlassBadge>
-          <GlassBadge color="warning">Pending</GlassBadge>
-          <GlassBadge color="error">Offline</GlassBadge>
-          <GlassBadge color="info">Maintenance</GlassBadge>
-          <GlassBadge color="default">Unknown</GlassBadge>
+          <LiquidBadge color="success">Online</LiquidBadge>
+          <LiquidBadge color="warning">Pending</LiquidBadge>
+          <LiquidBadge color="error">Offline</LiquidBadge>
+          <LiquidBadge color="info">Maintenance</LiquidBadge>
+          <LiquidBadge color="default">Unknown</LiquidBadge>
         </div>
       </div>
     </div>

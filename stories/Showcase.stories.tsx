@@ -4,16 +4,16 @@ import { action } from '@storybook/addon-actions';
 
 // Import all components
 import LiquidGlass from '../src/components/LiquidGlass';
-import GlassButton from '../src/components/GlassButton';
-import GlassCard from '../src/components/GlassCard';
-import GlassNavbar from '../src/components/GlassNavbar';
-import GlassModal from '../src/components/GlassModal';
-import GlassSidebar from '../src/components/GlassSidebar';
-import GlassInput from '../src/components/GlassInput';
-import GlassProgressBar from '../src/components/GlassProgressBar';
-import GlassBadge from '../src/components/GlassBadge';
-import GlassTooltip from '../src/components/GlassTooltip';
-import GlassStats from '../src/components/GlassStats';
+import LiquidButton from '../src/components/LiquidButton';
+import LiquidCard from '../src/components/LiquidCard';
+import LiquidNavbar from '../src/components/LiquidNavbar';
+import LiquidModal from '../src/components/LiquidModal';
+import LiquidSidebar from '../src/components/LiquidSidebar';
+import LiquidInput from '../src/components/LiquidInput';
+import LiquidProgressBar from '../src/components/LiquidProgressBar';
+import LiquidBadge from '../src/components/LiquidBadge';
+import LiquidTooltip from '../src/components/LiquidTooltip';
+import LiquidStats from '../src/components/LiquidStats';
 
 // Background images for showcase
 const backgrounds = [
@@ -145,22 +145,22 @@ const ShowcaseStory: React.FC = () => {
         return (
           <div className="space-y-6">
             <div className="flex flex-wrap gap-4">
-              <GlassButton variant="default" size="md">Default</GlassButton>
-              <GlassButton variant="subtle" size="md">Subtle</GlassButton>
-              <GlassButton variant="intense" size="md">Intense</GlassButton>
-              <GlassButton variant="minimal" size="md">Minimal</GlassButton>
+              <LiquidButton variant="default" size="md">Default</LiquidButton>
+              <LiquidButton variant="subtle" size="md">Subtle</LiquidButton>
+              <LiquidButton variant="intense" size="md">Intense</LiquidButton>
+              <LiquidButton variant="minimal" size="md">Minimal</LiquidButton>
             </div>
             
             <div className="flex flex-col gap-3">
-              <GlassButton variant="default" size="sm">Small</GlassButton>
-              <GlassButton variant="default" size="md">Medium</GlassButton>
-              <GlassButton variant="default" size="lg">Large</GlassButton>
-              <GlassButton variant="default" size="xl">Extra Large</GlassButton>
+              <LiquidButton variant="default" size="sm">Small</LiquidButton>
+              <LiquidButton variant="default" size="md">Medium</LiquidButton>
+              <LiquidButton variant="default" size="lg">Large</LiquidButton>
+              <LiquidButton variant="default" size="xl">Extra Large</LiquidButton>
             </div>
             
             <div className="flex gap-4">
-              <GlassButton variant="default" size="md">Normal</GlassButton>
-              <GlassButton variant="default" size="md" disabled>Disabled</GlassButton>
+              <LiquidButton variant="default" size="md">Normal</LiquidButton>
+              <LiquidButton variant="default" size="md" disabled>Disabled</LiquidButton>
             </div>
           </div>
         );
@@ -168,7 +168,7 @@ const ShowcaseStory: React.FC = () => {
       case 'glass-card':
         return (
           <div className="space-y-6">
-            <GlassCard variant="default" className="w-80">
+            <LiquidCard variant="default" className="w-80">
               <div className="text-white">
                 <h3 className="text-xl font-bold mb-3">Welcome Card</h3>
                 <p className="text-white/80 mb-4 text-sm">
@@ -183,21 +183,21 @@ const ShowcaseStory: React.FC = () => {
                   </button>
                 </div>
               </div>
-            </GlassCard>
+            </LiquidCard>
             
             <div className="grid grid-cols-2 gap-4">
-              <GlassCard variant="subtle" className="w-64">
+              <LiquidCard variant="subtle" className="w-64">
                 <div className="text-white text-center">
                   <h4 className="font-bold mb-2">Subtle</h4>
                   <p className="text-white/80 text-sm">Gentle morphism</p>
                 </div>
-              </GlassCard>
-              <GlassCard variant="intense" className="w-64">
+              </LiquidCard>
+              <LiquidCard variant="intense" className="w-64">
                 <div className="text-white text-center">
                   <h4 className="font-bold mb-2">Intense</h4>
                   <p className="text-white/80 text-sm">Dramatic effects</p>
                 </div>
-              </GlassCard>
+              </LiquidCard>
             </div>
           </div>
         );
@@ -205,7 +205,7 @@ const ShowcaseStory: React.FC = () => {
       case 'glass-navbar':
         return (
           <div className="w-full">
-            <GlassNavbar
+            <LiquidNavbar
               logo="ALG UI"
               links={[
                 { label: "Home", href: "#" },
@@ -213,9 +213,9 @@ const ShowcaseStory: React.FC = () => {
                 { label: "Docs", href: "#" }
               ]}
               actions={
-                <GlassButton size="sm" onClick={() => setModalOpen(true)}>
+                <LiquidButton size="sm" onClick={() => setModalOpen(true)}>
                   Login
-                </GlassButton>
+                </LiquidButton>
               }
             />
           </div>
@@ -224,19 +224,19 @@ const ShowcaseStory: React.FC = () => {
       case 'glass-input':
         return (
           <div className="space-y-4 w-80">
-            <GlassInput
+            <LiquidInput
               type="email"
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <GlassInput
+            <LiquidInput
               type="password"
               placeholder="Create password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <GlassProgressBar value={progress} showLabel={true} />
+            <LiquidProgressBar progress={progress} showLabel={true} />
           </div>
         );
 
@@ -245,16 +245,16 @@ const ShowcaseStory: React.FC = () => {
           <div className="space-y-6 w-80">
             <div>
               <h3 className="text-white font-bold mb-2">Progress Examples</h3>
-              <GlassProgressBar value={25} showLabel={true} />
+              <LiquidProgressBar progress={25} showLabel={true} />
             </div>
             <div>
-              <GlassProgressBar value={50} showLabel={true} />
+              <LiquidProgressBar progress={50} showLabel={true} />
             </div>
             <div>
-              <GlassProgressBar value={75} showLabel={true} />
+              <LiquidProgressBar progress={75} showLabel={true} />
             </div>
             <div>
-              <GlassProgressBar value={100} showLabel={true} />
+              <LiquidProgressBar progress={100} showLabel={true} />
             </div>
           </div>
         );
@@ -263,17 +263,17 @@ const ShowcaseStory: React.FC = () => {
         return (
           <div className="space-y-4">
             <div className="flex gap-2">
-              <GlassBadge color="default">Default</GlassBadge>
-              <GlassBadge color="success">Success</GlassBadge>
-              <GlassBadge color="warning">Warning</GlassBadge>
-              <GlassBadge color="error">Error</GlassBadge>
-              <GlassBadge color="info">Info</GlassBadge>
+              <LiquidBadge color="default">Default</LiquidBadge>
+              <LiquidBadge color="success">Success</LiquidBadge>
+              <LiquidBadge color="warning">Warning</LiquidBadge>
+              <LiquidBadge color="error">Error</LiquidBadge>
+              <LiquidBadge color="info">Info</LiquidBadge>
             </div>
             
             <div className="flex gap-2">
-              <GlassBadge variant="subtle" color="default">Subtle</GlassBadge>
-              <GlassBadge variant="intense" color="success">Intense</GlassBadge>
-              <GlassBadge variant="minimal" color="warning">Minimal</GlassBadge>
+              <LiquidBadge variant="subtle" color="default">Subtle</LiquidBadge>
+              <LiquidBadge variant="intense" color="success">Intense</LiquidBadge>
+              <LiquidBadge variant="minimal" color="warning">Minimal</LiquidBadge>
             </div>
           </div>
         );
@@ -281,19 +281,19 @@ const ShowcaseStory: React.FC = () => {
       case 'glass-stats':
         return (
           <div className="w-96">
-            <GlassStats stats={stats} />
+            <LiquidStats stats={stats} />
           </div>
         );
 
       case 'glass-modal':
         return (
           <div className="space-y-4">
-            <GlassButton onClick={() => setModalOpen(true)}>
+            <LiquidButton onClick={() => setModalOpen(true)}>
               Open Modal
-            </GlassButton>
+            </LiquidButton>
             
-            <GlassModal
-              isOpen={modalOpen}
+            <LiquidModal
+              
               onClose={() => setModalOpen(false)}
               size="md"
             >
@@ -305,34 +305,34 @@ const ShowcaseStory: React.FC = () => {
                 All components are fully customizable and accessible.
               </p>
               <div className="flex justify-end space-x-3">
-                <GlassButton 
+                <LiquidButton 
                   variant="subtle" 
                   onClick={() => setModalOpen(false)}
                 >
                   Close
-                </GlassButton>
-                <GlassButton onClick={action('modal-action')}>
+                </LiquidButton>
+                <LiquidButton onClick={action('modal-action')}>
                   Get Started
-                </GlassButton>
+                </LiquidButton>
               </div>
-            </GlassModal>
+            </LiquidModal>
           </div>
         );
 
       case 'glass-tooltip':
         return (
           <div className="space-y-4">
-            <GlassTooltip content="This is a tooltip! Hover to see the effect.">
-              <GlassButton variant="minimal">Hover Me</GlassButton>
-            </GlassTooltip>
+            <LiquidTooltip content="This is a tooltip! Hover to see the effect.">
+              <LiquidButton variant="minimal">Hover Me</LiquidButton>
+            </LiquidTooltip>
             
-            <GlassTooltip content="Tooltip on the right" position="right">
-              <GlassButton variant="subtle">Right Tooltip</GlassButton>
-            </GlassTooltip>
+            <LiquidTooltip content="Tooltip on the right" position="right">
+              <LiquidButton variant="subtle">Right Tooltip</LiquidButton>
+            </LiquidTooltip>
             
-            <GlassTooltip content="Tooltip on the bottom" position="bottom">
-              <GlassButton variant="intense">Bottom Tooltip</GlassButton>
-            </GlassTooltip>
+            <LiquidTooltip content="Tooltip on the bottom" position="bottom">
+              <LiquidButton variant="intense">Bottom Tooltip</LiquidButton>
+            </LiquidTooltip>
           </div>
         );
 
@@ -365,7 +365,7 @@ const ShowcaseStory: React.FC = () => {
       </div>
 
       {/* Sidebar */}
-      <GlassSidebar className="w-64">
+      <LiquidSidebar className="w-64">
         <div className="p-6">
           <h3 className="text-xl font-bold text-white mb-4">Menu</h3>
           <nav className="space-y-2">
@@ -375,7 +375,7 @@ const ShowcaseStory: React.FC = () => {
             <a href="#" className="block text-white/80 hover:text-white transition-colors">Support</a>
           </nav>
         </div>
-      </GlassSidebar>
+      </LiquidSidebar>
     </div>
   );
 };

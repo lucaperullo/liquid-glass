@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import GlassInput from '../src/components/GlassInput';
-import GlassButton from '../src/components/GlassButton';
+import LiquidInput from '../src/components/LiquidInput';
+import LiquidButton from '../src/components/LiquidButton';
 
 // Background images for testing
 const backgrounds = [
@@ -39,7 +39,7 @@ const BackgroundSelector: React.FC<{
   </div>
 );
 
-const GlassInputDemo: React.FC = () => {
+const LiquidInputDemo: React.FC = () => {
   const [currentBg, setCurrentBg] = useState(0);
   const [variant, setVariant] = useState<'default' | 'subtle' | 'intense' | 'minimal'>('default');
   const [email, setEmail] = useState('');
@@ -105,7 +105,7 @@ const GlassInputDemo: React.FC = () => {
           {/* Email Input */}
           <div className="space-y-2">
             <label className="text-white/80 text-sm font-medium">Email Address</label>
-            <GlassInput
+            <LiquidInput
               type="email"
               placeholder="Enter your email"
               value={email}
@@ -118,7 +118,7 @@ const GlassInputDemo: React.FC = () => {
           {/* Password Input */}
           <div className="space-y-2">
             <label className="text-white/80 text-sm font-medium">Password</label>
-            <GlassInput
+            <LiquidInput
               type="password"
               placeholder="Create a password"
               value={password}
@@ -131,7 +131,7 @@ const GlassInputDemo: React.FC = () => {
           {/* Search Input */}
           <div className="space-y-2">
             <label className="text-white/80 text-sm font-medium">Search</label>
-            <GlassInput
+            <LiquidInput
               type="text"
               placeholder="Search for anything..."
               value={search}
@@ -144,7 +144,7 @@ const GlassInputDemo: React.FC = () => {
           {/* Message Input */}
           <div className="space-y-2">
             <label className="text-white/80 text-sm font-medium">Message</label>
-            <GlassInput
+            <LiquidInput
               type="text"
               placeholder="Type your message here..."
               value={message}
@@ -156,14 +156,14 @@ const GlassInputDemo: React.FC = () => {
 
           {/* Submit Button */}
           <div className="pt-4">
-            <GlassButton 
+            <LiquidButton 
               variant="default" 
               size="lg"
               className="w-full"
               onClick={() => alert('Form submitted!')}
             >
               Submit Form
-            </GlassButton>
+            </LiquidButton>
           </div>
 
           {/* Form Values Display */}
@@ -183,8 +183,8 @@ const GlassInputDemo: React.FC = () => {
 };
 
 const meta: Meta = {
-  title: 'Components/GlassInput',
-  component: GlassInput,
+  title: 'Components/LiquidInput',
+  component: LiquidInput,
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -212,7 +212,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const InteractiveDemo: Story = {
-  render: () => <GlassInputDemo />,
+  render: () => <LiquidInputDemo />,
 };
 
 export const Default: Story = {
@@ -229,7 +229,7 @@ export const Default: Story = {
           
           <div className="space-y-2">
             <label className="text-white/80 text-sm font-medium">Email</label>
-            <GlassInput
+            <LiquidInput
               type="email"
               placeholder="Enter your email"
               value={value}
@@ -267,7 +267,7 @@ export const InputTypes: Story = {
           <div className="space-y-4">
             <div className="space-y-2">
               <label className="text-white/80 text-sm font-medium">Text</label>
-              <GlassInput
+              <LiquidInput
                 type="text"
                 placeholder="Enter text"
                 value={values.text}
@@ -277,7 +277,7 @@ export const InputTypes: Story = {
             
             <div className="space-y-2">
               <label className="text-white/80 text-sm font-medium">Email</label>
-              <GlassInput
+              <LiquidInput
                 type="email"
                 placeholder="Enter email"
                 value={values.email}
@@ -287,7 +287,7 @@ export const InputTypes: Story = {
             
             <div className="space-y-2">
               <label className="text-white/80 text-sm font-medium">Password</label>
-              <GlassInput
+              <LiquidInput
                 type="password"
                 placeholder="Enter password"
                 value={values.password}
@@ -297,7 +297,7 @@ export const InputTypes: Story = {
             
             <div className="space-y-2">
               <label className="text-white/80 text-sm font-medium">Number</label>
-              <GlassInput
+              <LiquidInput
                 type="number"
                 placeholder="Enter number"
                 value={values.number}
@@ -307,7 +307,7 @@ export const InputTypes: Story = {
             
             <div className="space-y-2">
               <label className="text-white/80 text-sm font-medium">Phone</label>
-              <GlassInput
+              <LiquidInput
                 type="tel"
                 placeholder="Enter phone"
                 value={values.tel}
@@ -336,7 +336,7 @@ export const Variants: Story = {
           <div className="space-y-4">
             <div className="space-y-2">
               <label className="text-white/80 text-sm font-medium">Default</label>
-              <GlassInput
+              <LiquidInput
                 type="text"
                 placeholder="Default variant"
                 value={value}
@@ -347,7 +347,7 @@ export const Variants: Story = {
             
             <div className="space-y-2">
               <label className="text-white/80 text-sm font-medium">Subtle</label>
-              <GlassInput
+              <LiquidInput
                 type="text"
                 placeholder="Subtle variant"
                 value={value}
@@ -358,7 +358,7 @@ export const Variants: Story = {
             
             <div className="space-y-2">
               <label className="text-white/80 text-sm font-medium">Intense</label>
-              <GlassInput
+              <LiquidInput
                 type="text"
                 placeholder="Intense variant"
                 value={value}
@@ -369,7 +369,7 @@ export const Variants: Story = {
             
             <div className="space-y-2">
               <label className="text-white/80 text-sm font-medium">Minimal</label>
-              <GlassInput
+              <LiquidInput
                 type="text"
                 placeholder="Minimal variant"
                 value={value}
