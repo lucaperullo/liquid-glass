@@ -6,6 +6,7 @@ const LiquidButton: React.FC<LiquidButtonProps> = ({
   children,
   variant = "default",
   size = "md",
+  onClick,
   className = "",
   style = {},
   ...props
@@ -24,6 +25,7 @@ const LiquidButton: React.FC<LiquidButtonProps> = ({
       variant={variant}
       className={buttonClass}
       style={style}
+      onClick={onClick}
       {...props}
     >
       {children}
