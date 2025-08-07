@@ -41,7 +41,13 @@ export const generateDisplacementSVG = (
   const newwidth = width / 2;
   const newheight = height / 2;
   const border = Math.min(newwidth, newheight) * (config.border * 0.5);
-  const effectiveRadius = Math.min(config.cornerRadius || config.radius, width / 2, height / 2);
+  
+  // Use cornerRadius if provided, otherwise fall back to radius
+  const effectiveRadius = Math.min(
+    config.cornerRadius !== undefined ? config.cornerRadius : config.radius, 
+    width / 2, 
+    height / 2
+  );
   
   // Apply overLight effect if enabled
   const lightness = config.overLight ? Math.max(20, config.lightness - 40) : config.lightness;

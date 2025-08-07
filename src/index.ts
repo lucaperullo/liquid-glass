@@ -1,18 +1,21 @@
+// Export all components
 export { default as LiquidGlass } from './components/LiquidGlass';
-export { default as GlassButton } from './components/GlassButton';
-export { default as GlassCard } from './components/GlassCard';
-export { default as GlassNavbar } from './components/GlassNavbar';
-export { default as GlassModal } from './components/GlassModal';
-export { default as GlassInput } from './components/GlassInput';
-export { default as GlassProgressBar } from './components/GlassProgressBar';
-export { default as GlassBadge } from './components/GlassBadge';
-export { default as GlassTooltip } from './components/GlassTooltip';
-export { default as GlassStats } from './components/GlassStats';
-export { default as GlassSidebar } from './components/GlassSidebar';
+export { default as LiquidButton } from './components/LiquidButton';
+export { default as LiquidCard } from './components/LiquidCard';
+export { default as LiquidInput } from './components/LiquidInput';
+export { default as LiquidModal } from './components/LiquidModal';
+export { default as LiquidNavbar } from './components/LiquidNavbar';
+export { default as LiquidProgressBar } from './components/LiquidProgressBar';
+export { default as LiquidBadge } from './components/LiquidBadge';
+export { default as LiquidTooltip } from './components/LiquidTooltip';
+export { default as LiquidStats } from './components/LiquidStats';
+export { default as LiquidSidebar } from './components/LiquidSidebar';
 
-export * from './components';
+// Export types
 export * from './types';
+
+// Export utilities
 export * from './utils';
 
-// Export CSS for easy importing
-export { default as styles } from './styles/index.css';
+// Export CSS
+import './styles/index.css';

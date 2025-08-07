@@ -51,6 +51,9 @@ const LiquidGlass: React.FC<LiquidGlassProps> = ({
     overLight
   });
 
+  // Ensure cornerRadius is properly applied
+  const effectiveCornerRadius = cornerRadius !== undefined ? cornerRadius : config.cornerRadius || config.radius;
+
   const containerRef = useRef<HTMLDivElement>(null);
   const [dimensions, setDimensions] = useState(DEFAULT_DIMENSIONS);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -75,8 +78,13 @@ const LiquidGlass: React.FC<LiquidGlassProps> = ({
   }, []);
 
   const displacementDataUri = useMemo(() => {
-    return generateDisplacementSVG(dimensions.width, dimensions.height, config);
-  }, [dimensions, config]);
+    // Create a config with the effective corner radius
+    const configWithCornerRadius = {
+      ...config,
+      cornerRadius: effectiveCornerRadius
+    };
+    return generateDisplacementSVG(dimensions.width, dimensions.height, configWithCornerRadius);
+  }, [dimensions, config, effectiveCornerRadius]);
 
   // Set loaded state when dimensions are valid
   useEffect(() => {
@@ -109,7 +117,7 @@ const LiquidGlass: React.FC<LiquidGlassProps> = ({
   const fallbackStyle: React.CSSProperties = {
     width: "100%",
     height: "100%",
-    borderRadius: config.cornerRadius || config.radius,
+    borderRadius: effectiveCornerRadius,
     position: "absolute",
     top: 0,
     left: 0,
@@ -124,7 +132,7 @@ const LiquidGlass: React.FC<LiquidGlassProps> = ({
   const glassMorphismStyle: React.CSSProperties = {
     width: "100%",
     height: "100%",
-    borderRadius: config.cornerRadius || config.radius,
+    borderRadius: effectiveCornerRadius,
     position: "absolute",
     top: 0,
     left: 0,
@@ -139,7 +147,7 @@ const LiquidGlass: React.FC<LiquidGlassProps> = ({
   const gradientBorderStyle: React.CSSProperties = {
     position: "absolute",
     inset: 0,
-    borderRadius: config.cornerRadius || config.radius,
+    borderRadius: effectiveCornerRadius,
     zIndex: 2,
     pointerEvents: "none",
     background: `linear-gradient(315deg, ${config.borderColor} 0%, rgba(120, 120, 120, 0) 30%, rgba(120, 120, 120, 0) 70%, ${config.borderColor} 100%) border-box`,
@@ -152,7 +160,7 @@ const LiquidGlass: React.FC<LiquidGlassProps> = ({
 
   const containerStyle: React.CSSProperties = {
     position: "relative",
-    borderRadius: config.cornerRadius || config.radius,
+    borderRadius: effectiveCornerRadius,
     overflow: "hidden",
     minHeight: "1px", // Ensure container has height even when empty
     ...style
